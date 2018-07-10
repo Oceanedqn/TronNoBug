@@ -22,15 +22,15 @@ class Windows extends JFrame implements KeyListener {
 
 	/** The width. */
 	private final int width = 900;
-	
+
 	/** The height. */
 	private final int height = 430;
-	
+
 	/** The controller. */
 	private IController controller;
-	
+
 	boolean dejaAppuyer = false;
-	
+
 	/** The menuu. */
 	private MenuPanel menuu;
 	private GamePanel game = new GamePanel();
@@ -45,16 +45,18 @@ class Windows extends JFrame implements KeyListener {
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
 		this.setAlwaysOnTop(true);
-		
+
 		this.menuu = new MenuPanel();
 		this.menuu.setBackground(Color.BLACK);
-		
+
 		this.setContentPane(this.menuu);
 		this.setVisible(true);
 		this.addKeyListener(this);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.awt.Component#repaint()
 	 */
 	@Override
@@ -67,34 +69,28 @@ class Windows extends JFrame implements KeyListener {
 	 *
 	 * @return the menuu
 	 */
-	/*public MenuPanel getMenuu() {
-		return this.menuu;
-	}*/
+	/*
+	 * public MenuPanel getMenuu() { return this.menuu; }
+	 */
 
-	
 	public MenuPanel getMenuPanel() {
 		return this.menuu;
 	}
-	
-	
+
 	public GamePanel getGamePanel() {
 		return this.game;
 	}
-	
+
 	// PAS BESOINS DES TAILLES
-	
-	
+
 	public IController getController() {
 		return controller;
 	}
-	
-	
-	
+
 	public void setController(IController controller) {
 		this.controller = controller;
 	}
-	
-	
+
 	public void position() {
 		this.game.setPlayer1x(this.controller.getBikeJ1X());
 		this.game.setPlayer1y(this.controller.getBikeJ1Y());
@@ -102,36 +98,34 @@ class Windows extends JFrame implements KeyListener {
 		this.game.setPlayer2y(this.controller.getBikeJ2Y());
 	}
 
-
-
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
 	 */
 	@Override
 	public void keyPressed(final KeyEvent e) {
 		switch (e.getKeyCode()) {
-		
+
 		case KeyEvent.VK_ENTER:
 			this.controller.orderPerform(Order.ENTER, 3);
-			
+
 			if (!dejaAppuyer) {
 				dejaAppuyer = true;
 				this.setContentPane(this.game);
 				this.repaint();
-				SwingUtilities.updateComponentTreeUI(this);		
-			}
-			else System.out.println("deja appuyer mon pote");
-			
+				SwingUtilities.updateComponentTreeUI(this);
+			} else
+				System.out.println("deja appuyer mon pote");
+
 			this.position();
 
-				
-			
 			break;
-			
+
 		case KeyEvent.VK_SPACE:
 			System.out.println("pause");
-			this.controller.orderPerform(Order.PAUSE,  4);
-			
+			this.controller.orderPerform(Order.PAUSE, 4);
+
 		case KeyEvent.VK_Z:
 			// Insutrction aller en haut
 			System.out.println("Haut");
@@ -176,7 +170,9 @@ class Windows extends JFrame implements KeyListener {
 		}
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
 	 */
 	@Override
@@ -185,7 +181,9 @@ class Windows extends JFrame implements KeyListener {
 
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
 	 */
 	@Override
@@ -193,10 +191,5 @@ class Windows extends JFrame implements KeyListener {
 		// TODO Auto-generated method stub
 
 	}
-
-	
-	
-	
-
 
 }
