@@ -10,7 +10,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-public class Menuu extends JPanel {
+public class MenuPanel extends JPanel {
 	/**
 	 *
 	 */
@@ -19,7 +19,7 @@ public class Menuu extends JPanel {
 	/**
 	 * Constructor
 	 */
-	public Menuu() {
+	public MenuPanel() {
 	}
 
 	/**

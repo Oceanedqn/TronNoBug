@@ -5,9 +5,7 @@ import java.awt.Dimension;
 
 import javax.swing.JPanel;
 
-import model.IPlayer;
-
-public class Block extends JPanel implements IPlayer {
+public class Block extends JPanel{
 
 	/**
 	 *

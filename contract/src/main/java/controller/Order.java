@@ -7,5 +7,5 @@ package controller;
  */
 public enum Order {
 
-	UP, LEFT, DOWN, RIGHT, ENTER,
+	UP, LEFT, DOWN, RIGHT, ENTER, PAUSE,
 }

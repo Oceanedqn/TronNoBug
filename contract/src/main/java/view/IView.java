@@ -33,6 +33,7 @@ public interface IView {
 
 	void closeWindows();
 
+	public void position();
 	/**
 	 * Get the observer of the view
 	 *

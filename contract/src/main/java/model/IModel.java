@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Observable;
 
-import controller.IElement;
 
 /**
  * <h1>The Interface IModel.</h1>
@@ -14,23 +13,7 @@ import controller.IElement;
  */
 public interface IModel {
 
-	/**
-	 * In the interface IElement, we got the element and his localisation (x;y)
-	 * 
-	 * @param x
-	 *            localisation x
-	 * @param y
-	 *            localisation y
-	 * @return Element
-	 */
-	IElement getElement(int x, int y);
 
-	/**
-	 * getter for the elements
-	 * 
-	 * @return A multi board to get the elements
-	 */
-	IElement[][] getElements();
 
 	/**
 	 * methode use to informe the model that the view has changed
@@ -55,14 +38,6 @@ public interface IModel {
 	public int getWallX(final int number);
 
 	public int getWallY(final int number);
-
-	public int positionJ1X();
-
-	public int positionJ1Y();
-
-	public int positionJ2X();
-
-	public int positionJ2Y();
 
 	public int getBikeJ1X();
 

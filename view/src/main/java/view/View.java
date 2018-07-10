@@ -12,29 +12,42 @@ import controller.IController;
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
-public class ViewFacade implements IView {
+public class View implements IView {
 
-	private final Windows win;
+	private Windows win;
 
+	
 	// private IModel model;
 
 	/**
 	 * Instantiates a new view facade.
 	 */
-	public ViewFacade() {
-		super();
+	public View() {
 		this.win = new Windows();
 
 	}
+	
+	
+	public void repaint() {
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see view.IView#displayMessage(java.lang.String)
-	 */
-	@Override
-	public final void displayMessage(final String message) {
-		JOptionPane.showMessageDialog(null, message);
+	}
+
+	public void openWindows() {
+		this.win.setVisible(true);
+	}
+
+
+	public void closeWindows() {
+		this.win.setVisible(false);
+	}
+	
+	
+	public Observer getObserver() {
+		return (Observer) this.win.getGamePanel();
+	}
+	
+	public void setController(IController controller) {
+		this.win.setController(controller);
 	}
 
 	public Windows getWin() {
@@ -44,32 +57,20 @@ public class ViewFacade implements IView {
 	/**
 	 * update methode from IView inteface
 	 */
-	@Override
-	public void repaint() {
 
-	}
-
+	
 	/**
 	 * methode to open the frame
 	 */
-	public void openFrame() {
-		this.win.setVisible(true);
-	}
-
-	/**
-	 * methode to close the current frame
-	 */
-	public void closeFrame() {
-		this.win.setVisible(false);
-	}
+	
 
 	/**
 	 * methode to get the observer from the patern
 	 */
-	@Override
+/*	@Override
 	public Observer getObserver() {
-		return (Observer) this.win.getMenuu();
-	}
+		return (Observer) this.win.getMenuPanel();
+	}*/
 
 	/**
 	 * set the controller associated to the view
@@ -77,21 +78,21 @@ public class ViewFacade implements IView {
 	 * @param controller
 	 *            The controller associated
 	 */
-	@Override
-	public void setController(final IController controller) {
-		this.win.setController(controller);
+	
+
+	
+	
+	public void position() {
+		this.win.position();
 	}
 
+
 	@Override
-	public void openWindows() {
+	public void displayMessage(String message) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
-	@Override
-	public void closeWindows() {
-		// TODO Auto-generated method stub
 
-	}
 
 }
