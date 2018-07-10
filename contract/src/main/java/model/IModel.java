@@ -1,8 +1,8 @@
 package model;
 
-import java.sql.SQLException;
-import java.util.List;
 import java.util.Observable;
+
+import controller.IElement;
 
 
 /**
@@ -14,6 +14,7 @@ import java.util.Observable;
 public interface IModel {
 
 
+	IElement getElement(int x, int y);
 
 	/**
 	 * methode use to informe the model that the view has changed
@@ -31,7 +32,7 @@ public interface IModel {
 	// ###################### Autre ##############################
 	// ###########################################################
 
-	public int getNumberOfWall();
+/*	public int getNumberOfWall();
 
 	public void setNumberOfWall(final int numberOfWall);
 
@@ -53,7 +54,7 @@ public interface IModel {
 
 	public void setBikeJ2X(final int x);
 
-	public void setBikeJ2Y(final int y);
+	public void setBikeJ2Y(final int y);*/
 
 	/**
 	 * Gets the example by id.
@@ -64,7 +65,7 @@ public interface IModel {
 	 * @throws SQLException
 	 *             the SQL exception
 	 */
-	Example getExampleById(int id) throws SQLException;
+//	Example getExampleById(int id) throws SQLException;
 
 	/**
 	 * Gets the example by name.
@@ -75,7 +76,7 @@ public interface IModel {
 	 * @throws SQLException
 	 *             the SQL exception
 	 */
-	Example getExampleByName(String name) throws SQLException;
+//	Example getExampleByName(String name) throws SQLException;
 
 	/**
 	 * Gets the all examples.
@@ -84,5 +85,5 @@ public interface IModel {
 	 * @throws SQLException
 	 *             the SQL exception
 	 */
-	List<Example> getAllExamples() throws SQLException;
+//	List<Example> getAllExamples() throws SQLException;
 }

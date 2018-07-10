@@ -2,8 +2,6 @@ package view;
 
 import java.util.Observer;
 
-import javax.swing.JOptionPane;
-
 import controller.IController;
 
 /**
@@ -50,49 +48,25 @@ public class View implements IView {
 		this.win.setController(controller);
 	}
 
-	public Windows getWin() {
-		return this.win;
-	}
-
-	/**
-	 * update methode from IView inteface
-	 */
-
-	
-	/**
-	 * methode to open the frame
-	 */
-	
-
-	/**
-	 * methode to get the observer from the patern
-	 */
-/*	@Override
-	public Observer getObserver() {
-		return (Observer) this.win.getMenuPanel();
-	}*/
-
-	/**
-	 * set the controller associated to the view
-	 *
-	 * @param controller
-	 *            The controller associated
-	 */
-	
 
 	
 	
-	public void position() {
-		this.win.position();
-	}
-
-
+	
+	
 	@Override
 	public void displayMessage(String message) {
 		// TODO Auto-generated method stub
 		
 	}
 
+
+	@Override
+	public void position() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 
 
 }

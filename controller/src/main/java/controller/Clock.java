@@ -19,7 +19,7 @@ public class Clock extends Thread {
 	 */
 	public static int DEFAULT_TICK_INTERVAL = 100;
 
-	private ControllerFacade controller;
+	private Controller controller;
 
 	/**
 	 * Instantiates a new Clock.
@@ -27,7 +27,7 @@ public class Clock extends Thread {
 	 * @param controller
 	 *            clock for the controller
 	 */
-	public Clock(final ControllerFacade controller) {
+	public Clock(final Controller controller) {
 		this.tickNumber = 0;
 		this.setTickInterval(Clock.DEFAULT_TICK_INTERVAL);
 		this.controller = controller;

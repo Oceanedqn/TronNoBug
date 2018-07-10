@@ -11,10 +11,10 @@ import model.IModel;
 class GamePanel extends JPanel implements Observer {
 
 	
-	private int player1x;
-	private int player1y;
-	private int player2x;
-	private int player2y;
+	private int J1x;
+	private int J1y;
+	private int J2x;
+	private int J2y;
 	/**
 	 *
 	 */
@@ -77,10 +77,10 @@ class GamePanel extends JPanel implements Observer {
 		g.drawString("RIGHT : RIGHT", 625, 300);
 		
 		g.setColor(Color.blue);
-		g.fillRect(this.player1x,this.player1y,20,20);
+		g.fillRect(this.J1x,this.J1y,20,20);
 		
 		g.setColor(Color.red);
-		g.fillRect(this.player2x,this.player2y,20,20);
+		g.fillRect(this.J2x,this.J2y,20,20);
 
 	}
 
@@ -106,26 +106,26 @@ class GamePanel extends JPanel implements Observer {
 
 
 
-	public void setPlayer1x(int player1x) {
-		this.player1x = player1x;
+	public void setJ1x(int player1x) {
+		this.J1x = player1x;
 	}
 
 
 
-	public void setPlayer1y(int player1y) {
-		this.player1y = player1y;
+	public void setJ1y(int player1y) {
+		this.J1y = player1y;
 	}
 
 
 
-	public void setPlayer2x(int player2x) {
-		this.player2x = player2x;
+	public void setJ2x(int player2x) {
+		this.J2x = player2x;
 	}
 
 
 
-	public void setPlayer2y(int player2y) {
-		this.player2y = player2y;
+	public void setJ2y(int player2y) {
+		this.J2y = player2y;
 	}
 
 }

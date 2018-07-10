@@ -3,7 +3,6 @@ package view;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.Observer;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
@@ -91,12 +90,12 @@ class Windows extends JFrame implements KeyListener {
 		this.controller = controller;
 	}
 
-	public void position() {
-		this.game.setPlayer1x(this.controller.getBikeJ1X());
-		this.game.setPlayer1y(this.controller.getBikeJ1Y());
-		this.game.setPlayer2x(this.controller.getBikeJ2X());
-		this.game.setPlayer2y(this.controller.getBikeJ2Y());
-	}
+	/*
+	 * public void position() { this.game.setJ1x(this.controller.getBikeJ1X());
+	 * this.game.setJ1y(this.controller.getBikeJ1Y());
+	 * this.game.setJ2x(this.controller.getBikeJ2X());
+	 * this.game.setJ2y(this.controller.getBikeJ2Y()); }
+	 */
 
 	/*
 	 * (non-Javadoc)
@@ -118,53 +117,42 @@ class Windows extends JFrame implements KeyListener {
 			} else
 				System.out.println("deja appuyer mon pote");
 
-			this.position();
-
 			break;
 
 		case KeyEvent.VK_SPACE:
-			System.out.println("pause");
-			this.controller.orderPerform(Order.PAUSE, 4);
-
+			System.out.println("Space");
+			this.controller.orderPerform(Order.SPACE, 4);
+			break;
 		case KeyEvent.VK_Z:
-			// Insutrction aller en haut
-			System.out.println("Haut");
+			System.out.println("Up");
 			this.controller.orderPerform(Order.UP, 1);
 			break;
-
 		case KeyEvent.VK_Q:
-			System.out.println("Gauche");
+			System.out.println("Left");
 			this.controller.orderPerform(Order.LEFT, 1);
-			// Insutrction aller GAUCHE
 			break;
-
 		case KeyEvent.VK_S:
-			System.out.println("Bas");
+			System.out.println("Down");
 			this.controller.orderPerform(Order.DOWN, 1);
 			break;
-
 		case KeyEvent.VK_D:
-			System.out.println("Droite");
+			System.out.println("Right");
 			this.controller.orderPerform(Order.RIGHT, 1);
 			break;
-
 		case KeyEvent.VK_UP:
-			System.out.println("Haut");
+			System.out.println("Up");
 			this.controller.orderPerform(Order.UP, 2);
 			break;
-
 		case KeyEvent.VK_LEFT:
-			System.out.println("Gauche");
+			System.out.println("Left");
 			this.controller.orderPerform(Order.LEFT, 2);
 			break;
-
 		case KeyEvent.VK_DOWN:
-			System.out.println("Bas");
+			System.out.println("Down");
 			this.controller.orderPerform(Order.DOWN, 2);
 			break;
-
 		case KeyEvent.VK_RIGHT:
-			System.out.println("Droite");
+			System.out.println("Right");
 			this.controller.orderPerform(Order.RIGHT, 2);
 			break;
 		}

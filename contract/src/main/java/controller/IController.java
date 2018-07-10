@@ -12,6 +12,8 @@ import model.IModel;
  */
 public interface IController {
 
+	
+	public void orderPerform(Order order);
 	/**
 	 * Set the model of the controller
 	 *
@@ -28,25 +30,10 @@ public interface IController {
 	public void start() throws SQLException;
 
 
-
 	public int time();
 	
 	public void orderPerform(Order keycode, int numPlayer);
 
-	int getBikeJ1X();
 
-	int getBikeJ1Y();
-	
-	int getBikeJ2X();
-	
-	int getBikeJ2Y();
-
-	void setBikeJ1X(int x);
-	
-	void setBikeJ1Y(int y);
-	
-	void setBikeJ2X(int x);
-	
-	void setBikeJ2Y(int y);
 
 }

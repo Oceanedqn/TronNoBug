@@ -7,8 +7,8 @@ package main;
 
 import java.sql.SQLException;
 
-import controller.ControllerFacade;
-import model.ModelFacade;
+import controller.Controller;
+import model.Model;
 import view.View;
 
 /**
@@ -24,10 +24,10 @@ public abstract class Main {
 	 * @throws SQLException
 	 */
 	public static void main(final String[] args) throws SQLException {
-		final ModelFacade model = new ModelFacade();		
+		final Model model = new Model();		
 		final View view = new View();
 
-		final ControllerFacade controller = new ControllerFacade(view, model);
+		final Controller controller = new Controller(view, model);
 		view.setController(controller);
 		controller.start();
 		// final ControllerFacade controller = new ControllerFacade(new ViewFacade(),

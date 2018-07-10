@@ -6,20 +6,27 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-public class MenuPanel extends JPanel {
+import model.IModel;
+
+public class MenuPanel extends JPanel implements Observer {
 	/**
 	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
+	private IModel model;
+
 	/**
 	 * Constructor
 	 */
 	public MenuPanel() {
+		setVisible(true);
 	}
 
 	/**
@@ -27,6 +34,8 @@ public class MenuPanel extends JPanel {
 	 */
 	@Override
 	public void paintComponent(final Graphics g) {
+
+		super.paintComponent(g);
 		/**
 		 * Draw background black
 		 */
@@ -63,5 +72,21 @@ public class MenuPanel extends JPanel {
 			e.printStackTrace();
 		}
 	}
+
+	@Override
+	public void update(Observable observable, Object arg) {
+		this.setModel((IModel) observable);
+		this.repaint();
+
+	}
+
+	public IModel getModel() {
+		return model;
+	}
+
+	public void setModel(IModel model) {
+		this.model = model;
+	}
+
 
 }
