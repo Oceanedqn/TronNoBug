@@ -224,7 +224,9 @@ public class Controller implements IController {
 
 			if (!collisionOn(this.getModel().getBikeJ1X(), this.getModel().getBikeJ1Y(), this.getModel().getBikeJ2X(),
 					this.getModel().getBikeJ2Y())) {
-				end("PLAYER TWO WIN");
+				// end("PLAYER TWO WIN");
+				end();
+				javax.swing.JOptionPane.showMessageDialog(null, "J2 WIN");
 				this.view.finalTime();
 			}
 		}
@@ -255,7 +257,9 @@ public class Controller implements IController {
 
 			if (!collisionOn(this.getModel().getBikeJ2X(), this.getModel().getBikeJ2Y(), this.getModel().getBikeJ1X(),
 					this.getModel().getBikeJ1Y())) {
-				end("PLAYER ONE WIN");
+				// end("PLAYER ONE WIN");
+				end();
+				javax.swing.JOptionPane.showMessageDialog(null, "J1 WIN");
 				this.view.finalTime();
 			}
 		}
@@ -289,7 +293,8 @@ public class Controller implements IController {
 		}
 
 		if (x == xx && y == yy) {
-			end("NO WIINEUR");
+			validate = 0;
+			end();
 			this.view.finalTime();
 		}
 
@@ -307,28 +312,17 @@ public class Controller implements IController {
 	 *            the message
 	 */
 
-	public void end(String message) {
-		try {
-			this.model.message(message, this.clock.getTickNumber());
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
+	public void end() {
 		this.getView().closeWindows();
-		this.getView().displayMessage(message);
+		this.Clock();
+		System.out.println(Clock());
+
 		this.clock.stop();
-		System.exit(0);
+		// System.exit(0);
 
 	}
 
-	/**
-	 * Time.
-	 *
-	 * @return the int
-	 */
-	public int time() {
-		return this.clock.getTickNumber();
-	}
+
 
 	/**
 	 * Update.

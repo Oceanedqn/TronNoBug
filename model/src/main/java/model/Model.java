@@ -111,6 +111,7 @@ public final class Model extends Observable implements IModel {
 	 */
 	public void message(String player, int time) throws SQLException {
 		TronBDDConnector connector = new TronBDDConnector();
+		System.out.println("ouverture bdd");
 		connector.sauverEnBase(player, time);
 
 	}
