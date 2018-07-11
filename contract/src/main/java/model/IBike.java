@@ -1,13 +1,18 @@
 package model;
 
-import controller.Direction;
-import controller.IEntity;
+public interface IBike {
 
-public interface IBike extends IEntity {
+	public int getX();
 
-	Direction getDirection();
+	public void setX(int x);
+
+	public int getY();
+
+	public void setY(int y);
+
+	public int positionX();
+
+	public int positionY();
 	
-	void setDirection(Direction direction);
 	
-	void moveTo(int x, int y);
 }

@@ -25,6 +25,10 @@ public class Controller implements IController {
 
 	private boolean inGame = false;
 
+	private Order lastKeyCodeJ2;
+
+	private Order lastKeyCodeJ1;
+
 	/**
 	 * Instantiates a new controller facade.
 	 *
@@ -37,6 +41,8 @@ public class Controller implements IController {
 
 		this.setView(view);
 		this.setModel(model);
+
+
 		// this.view.position();
 	}
 
@@ -46,12 +52,12 @@ public class Controller implements IController {
 	 * @throws SQLException
 	 *             the SQL exception
 	 */
-	@Override
+
 	public void start() throws SQLException {
 		// this.model.getObservable().addObserver(this.view.getObserver());
 		this.clock = new Clock(this);
 		this.clock.start();
-		this.view.position();
+		System.out.println("Start");
 		// this.getView().displayMessage(this.getModel().getExampleById(1).toString());
 
 		// this.getView().displayMessage(this.getModel().getExampleByName("Example
@@ -66,22 +72,29 @@ public class Controller implements IController {
 		// this.getView().displayMessage(message.toString());
 	}
 
+	public int moveBikeJ1X() {
+		return this.model.getBikeJ1X();
+	}
+
+	public int moveBikeJ1Y() {
+		return this.model.getBikeJ1Y();
+	}
+
+	public int moveBikeJ2X() {
+		return this.model.getBikeJ2X();
+	}
+
+	public int moveBikeJ2Y() {
+		return this.model.getBikeJ2Y();
+	}
+
+	// RETOURNE JUSTE X
 	public int collision(final int positionX, final int positionY) {
 		return positionX;
 
 	}
 
-	// GETTERS & SETTERS //
 
-	/**
-	 * Sets the view.
-	 *
-	 * @param view
-	 *            the new view
-	 */
-	public void setView(final IView view) {
-		this.view = view;
-	}
 
 	/**
 	 * Sets the model.
@@ -94,52 +107,48 @@ public class Controller implements IController {
 		this.model = model;
 	}
 
-	public void update() {
-		this.model.flush();
-
-	}
-
 	@Override
 	public void orderPerform(Order keycode, int numPlayer) {
 
-
-			if (numPlayer == 3) {
-				System.out.println("caca");
-				inGame = true;
-			}
+		if (numPlayer == 3) {
+			System.out.println("caca");
+			inGame = true;
+		}
 
 		if (inGame) {
 			if (numPlayer == 1) {
+				this.lastKeyCodeJ1 = keycode;
 				System.out.println("Joueur 1 qui joue");
 
 				if (keycode == Order.DOWN) {
-					System.out.println("Tu descends");
+					ActionPerform(this.lastKeyCodeJ1, 1);
 
 				} else if (keycode == Order.RIGHT) {
-					System.out.println("Tu vas a droite");
+					ActionPerform(this.lastKeyCodeJ1, 1);
 
 				} else if (keycode == Order.LEFT) {
-					System.out.println("Tu vas à gauche");
+					ActionPerform(this.lastKeyCodeJ1, 1);
 
 				} else if (keycode == Order.UP) {
-					System.out.println("Tu montes");
+					ActionPerform(this.lastKeyCodeJ1, 1);
 				}
 			}
 
 			if (numPlayer == 2) {
+				this.lastKeyCodeJ2 = keycode;
 				System.out.println("Joueur 2 qui joue");
 
 				if (keycode == Order.DOWN) {
-					System.out.println("Tu descends");
+					ActionPerform(this.lastKeyCodeJ2, 2);
 
 				} else if (keycode == Order.RIGHT) {
-					System.out.println("Tu vas a droite");
+					ActionPerform(this.lastKeyCodeJ2, 2);
 
 				} else if (keycode == Order.LEFT) {
-					System.out.println("Tu vas à gauche");
+					ActionPerform(this.lastKeyCodeJ2, 2);
 
 				} else if (keycode == Order.UP) {
-					System.out.println("Tu montes");
+					ActionPerform(this.lastKeyCodeJ2, 2);
 				}
 			}
 
@@ -151,50 +160,136 @@ public class Controller implements IController {
 
 	}
 
-	@Override
+	public void ActionPerform(Order order, int keycode) {
+		if (keycode == 1) {
+			switch (order) {
+			case UP:
+				this.getModel().setBikeJ1Y(this.getModel().positionJ1Y() - 20);
+				System.out.println("test");
+				break;
+			case DOWN:
+				this.getModel().setBikeJ1Y(this.getModel().positionJ1Y() + 20);
+				break;
+			case ENTER:
+				break;
+			case LEFT:
+				this.getModel().setBikeJ1X(this.getModel().positionJ1X() - 20);
+				break;
+			case PAUSE:
+				break;
+			case RIGHT:
+				this.getModel().setBikeJ1X(this.getModel().positionJ1X() + 20);
+				break;
+			case SPACE:
+				break;
+			default:
+				break;
+			}
+
+			if (!collisionOn(this.getModel().getBikeJ1X(), this.getModel().getBikeJ1Y(), this.getModel().getBikeJ2X(),
+					this.getModel().getBikeJ2Y())) {
+				end("PLAYER TWO WIN");
+			}
+		}
+			if (keycode == 2) {
+				switch (order) {
+				case UP:
+				this.getModel().setBikeJ2Y(this.getModel().positionJ2Y() - 20);
+				System.out.println("test");
+					break;
+				case DOWN:
+				this.getModel().setBikeJ2Y(this.getModel().positionJ2Y() + 20);
+					break;
+				case ENTER:
+					break;
+				case LEFT:
+				this.getModel().setBikeJ2X(this.getModel().positionJ2X() - 20);
+					break;
+				case PAUSE:
+					break;
+				case RIGHT:
+				this.getModel().setBikeJ2X(this.getModel().positionJ2X() + 20);
+					break;
+				case SPACE:
+					break;
+				default:
+					break;
+				}
+				
+			if (!collisionOn(this.getModel().getBikeJ2X(), this.getModel().getBikeJ2Y(), this.getModel().getBikeJ1X(),
+					this.getModel().getBikeJ1Y())) {
+				end("PLAYER ONE WIN");
+				}
+			}
+			
+
+		}
+
+	public boolean collisionOn(int x, int y, int xx, int yy) {
+		int validate = 1;
+		if (x > 580 || x < 0) {
+			validate = 0;
+		}
+
+		if (y > 380 || y < 0) {
+			validate = 0;
+		}
+
+		if (x == xx && y == yy) {
+			end("NO WIINEUR");
+		}
+
+		if (validate == 0) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	@SuppressWarnings("deprecation")
+	public void end(String message) {
+		try {
+			this.model.message(message, this.clock.getTickNumber());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		this.getView().closeWindows();
+		this.getView().displayMessage(message);
+		this.clock.stop();
+		System.exit(0);
+
+	}
+
 	public int time() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.clock.getTickNumber();
 	}
 
-	@Override
-	public void orderPerform(Order order) {
-		// TODO Auto-generated method stub
+	public void update() {
+		this.getView().position();
+		this.getView().repaint();
+		this.view.finalTime();
 
 	}
 
-	/*
-	 * public int getBikeJ1X() { // TODO Auto-generated method stub return
-	 * model.getJ1X(); }
-	 * 
-	 * public int getBikeJ1Y() { // TODO Auto-generated method stub return
-	 * model.getBikeJ1Y(); }
-	 * 
-	 * public int getBikeJ2X() {
-	 * 
-	 * return model.getBikeJ2X(); }
-	 * 
-	 * public int getBikeJ2Y() { // TODO Auto-generated method stub return
-	 * model.getBikeJ2Y(); }
-	 * 
-	 * 
-	 * public void setBikeJ1X(int x) { this.model.setBikeJ1X(x);
-	 * 
-	 * }
-	 * 
-	 * 
-	 * public void setBikeJ1Y(int y) { this.model.setBikeJ1Y(y);
-	 * 
-	 * }
-	 * 
-	 * public void setBikeJ2X(int x) { this.model.setBikeJ2X(x);
-	 * 
-	 * }
-	 * 
-	 * 
-	 * public void setBikeJ2Y(int y) { this.model.setBikeJ2Y(y);
-	 * 
-	 * }
-	 */
+
+	public IModel getModel() {
+		return this.model;
+	}
+
+	public IView getView() {
+		return view;
+	}
+
+	public void setView(IView view) {
+		this.view = view;
+	}
+
+
+
+	public int Clock() {
+
+		return this.clock.getTickNumber();
+	}
 
 }

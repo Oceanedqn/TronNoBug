@@ -3,8 +3,10 @@ package view;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Observer;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 import controller.IController;
@@ -14,7 +16,8 @@ import controller.Order;
 /**
  * The Class Windows.
  */
-class Windows extends JFrame implements KeyListener {
+class Windows extends JFrame implements KeyListener, IView
+{
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 5540868149981434301L;
@@ -29,6 +32,8 @@ class Windows extends JFrame implements KeyListener {
 	private IController controller;
 
 	boolean dejaAppuyer = false;
+
+	private Clock clock;
 
 	/** The menuu. */
 	private MenuPanel menuu;
@@ -80,7 +85,11 @@ class Windows extends JFrame implements KeyListener {
 		return this.game;
 	}
 
-	// PAS BESOINS DES TAILLES
+	/*
+	 * public void actionPerformed(ActionEvent arg0) throws SQLException {
+	 * closeWindows(); Windows win = new Windows(); setController(this.controller);
+	 * position(); this.controller.start(); }
+	 */
 
 	public IController getController() {
 		return controller;
@@ -88,8 +97,12 @@ class Windows extends JFrame implements KeyListener {
 
 	public void setController(IController controller) {
 		this.controller = controller;
+		// this.setController(controller);
 	}
 
+	public final void displayMessage(final String message) {
+		JOptionPane.showMessageDialog(null, message);
+	}
 	/*
 	 * public void position() { this.game.setJ1x(this.controller.getBikeJ1X());
 	 * this.game.setJ1y(this.controller.getBikeJ1Y());
@@ -111,6 +124,11 @@ class Windows extends JFrame implements KeyListener {
 
 			if (!dejaAppuyer) {
 				dejaAppuyer = true;
+				game.update(controller.getModel());
+				// this.setContentPane(this.game);
+				this.clock = new Clock();
+				this.clock.setLocation(800, 70);
+				this.game.add(clock);
 				this.setContentPane(this.game);
 				this.repaint();
 				SwingUtilities.updateComponentTreeUI(this);
@@ -119,6 +137,7 @@ class Windows extends JFrame implements KeyListener {
 
 			break;
 
+
 		case KeyEvent.VK_SPACE:
 			System.out.println("Space");
 			this.controller.orderPerform(Order.SPACE, 4);
@@ -126,34 +145,50 @@ class Windows extends JFrame implements KeyListener {
 		case KeyEvent.VK_Z:
 			System.out.println("Up");
 			this.controller.orderPerform(Order.UP, 1);
+			this.getGamePanel().setJ1y(controller.getModel().getBikeJ1Y());
+			this.getGamePanel().repaint();
 			break;
 		case KeyEvent.VK_Q:
 			System.out.println("Left");
 			this.controller.orderPerform(Order.LEFT, 1);
+			this.getGamePanel().setJ1x(controller.getModel().getBikeJ1X());
+			this.getGamePanel().repaint();
 			break;
 		case KeyEvent.VK_S:
 			System.out.println("Down");
 			this.controller.orderPerform(Order.DOWN, 1);
+			this.getGamePanel().setJ1y(controller.getModel().getBikeJ1Y());
+			this.getGamePanel().repaint();
 			break;
 		case KeyEvent.VK_D:
 			System.out.println("Right");
 			this.controller.orderPerform(Order.RIGHT, 1);
+			this.getGamePanel().setJ1x(controller.getModel().getBikeJ1X());
+			this.getGamePanel().repaint();
 			break;
 		case KeyEvent.VK_UP:
 			System.out.println("Up");
 			this.controller.orderPerform(Order.UP, 2);
+			this.getGamePanel().setJ2y(controller.getModel().getBikeJ2Y());
+			this.getGamePanel().repaint();
 			break;
 		case KeyEvent.VK_LEFT:
 			System.out.println("Left");
 			this.controller.orderPerform(Order.LEFT, 2);
+			this.getGamePanel().setJ2x(controller.getModel().getBikeJ2X());
+			this.getGamePanel().repaint();
 			break;
 		case KeyEvent.VK_DOWN:
 			System.out.println("Down");
 			this.controller.orderPerform(Order.DOWN, 2);
+			this.getGamePanel().setJ2y(controller.getModel().getBikeJ2Y());
+			this.getGamePanel().repaint();
 			break;
 		case KeyEvent.VK_RIGHT:
 			System.out.println("Right");
 			this.controller.orderPerform(Order.RIGHT, 2);
+			this.getGamePanel().setJ2x(controller.getModel().getBikeJ2X());
+			this.getGamePanel().repaint();
 			break;
 		}
 	}
@@ -176,6 +211,41 @@ class Windows extends JFrame implements KeyListener {
 	 */
 	@Override
 	public void keyReleased(final KeyEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+
+	@Override
+	public void openWindows() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void closeWindows() {
+		this.setVisible(false);
+
+	}
+
+	@Override
+	public void position() {
+		this.position();
+
+	}
+
+	@Override
+	public Observer getObserver() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setClock() {
+		this.clock.setTimer((this.controller.Clock()));
+	}
+
+	@Override
+	public void finalTime() {
 		// TODO Auto-generated method stub
 
 	}

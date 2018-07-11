@@ -1,8 +1,7 @@
 package model;
 
+import java.sql.SQLException;
 import java.util.Observable;
-
-import controller.IElement;
 
 
 /**
@@ -12,9 +11,6 @@ import controller.IElement;
  * @version 1.0
  */
 public interface IModel {
-
-
-	IElement getElement(int x, int y);
 
 	/**
 	 * methode use to informe the model that the view has changed
@@ -32,13 +28,15 @@ public interface IModel {
 	// ###################### Autre ##############################
 	// ###########################################################
 
-/*	public int getNumberOfWall();
-
-	public void setNumberOfWall(final int numberOfWall);
-
-	public int getWallX(final int number);
-
-	public int getWallY(final int number);
+	/*
+	 * public int getNumberOfWall();
+	 * 
+	 * public void setNumberOfWall(final int numberOfWall);
+	 * 
+	 * public int getWallX(final int number);
+	 * 
+	 * public int getWallY(final int number);
+	 */
 
 	public int getBikeJ1X();
 
@@ -48,13 +46,23 @@ public interface IModel {
 
 	public int getBikeJ2Y();
 
-	public void setBikeJ1X(final int x);
+	public void setBikeJ1X(int x);
 
-	public void setBikeJ1Y(final int y);
+	public void setBikeJ1Y(int y);
 
-	public void setBikeJ2X(final int x);
+	public void setBikeJ2X(int x);
 
-	public void setBikeJ2Y(final int y);*/
+	public void setBikeJ2Y(int y);
+
+	int positionJ1Y();
+
+	int positionJ1X();
+
+	int positionJ2Y();
+
+	int positionJ2X();
+
+	public void message(String message, int time) throws SQLException;;
 
 	/**
 	 * Gets the example by id.

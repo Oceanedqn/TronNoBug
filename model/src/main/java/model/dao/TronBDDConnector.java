@@ -6,16 +6,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import com.mysql.cj.jdbc.CallableStatement;
+
 /**
  * <h1>The Class BoulderDashBDDConnector.</h1>
  *
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
-final class LorannBDDConnector {
+final class TronBDDConnector {
 
     /** The instance. */
-    private static LorannBDDConnector instance;
+	private static TronBDDConnector instance = null;
 
     /** The login. */
     private static String                  user     = "root";
@@ -35,21 +37,28 @@ final class LorannBDDConnector {
     /**
      * Instantiates a new boulder dash BDD connector.
      */
-    private LorannBDDConnector() {
-        this.open();
+	private TronBDDConnector() {
+		try {
+			this.open();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
-    /**
-     * Gets the single instance of BoulderDashBDDConnector.
-     *
-     * @return single instance of BoulderDashBDDConnector
-     */
-    public static LorannBDDConnector getInstance() {
-        if (instance == null) {
-            setInstance(new LorannBDDConnector());
-        }
-        return instance;
-    }
+	public void message(String message, int time) throws SQLException {
+		System.out.println("envoie" + message + "test");
+		final String sql = "{CALL Message(?, ?)}";
+		System.out.println("test1");
+		final CallableStatement INSERT = (CallableStatement) this.getConnection().prepareCall(sql);
+		INSERT.setString(1, message);
+		INSERT.setInt(2, time);
+		INSERT.execute();
+		System.out.println("envoie" + message + "test2");
+
+	}
+
+
 
     /**
      * Sets the instance.
@@ -57,8 +66,8 @@ final class LorannBDDConnector {
      * @param instance
      *            the new instance
      */
-    private static void setInstance(final LorannBDDConnector instance) {
-        LorannBDDConnector.instance = instance;
+	private static void setInstance(final TronBDDConnector instance) {
+		TronBDDConnector.instance = instance;
     }
 
     /**
@@ -66,17 +75,24 @@ final class LorannBDDConnector {
      *
      * @return true, if successful
      */
-    private boolean open() {
+	private boolean open() throws ClassNotFoundException {
         try {
-            this.connection = DriverManager.getConnection(LorannBDDConnector.url, LorannBDDConnector.user,
-                    LorannBDDConnector.password);
+			this.connection = DriverManager.getConnection(TronBDDConnector.url, TronBDDConnector.user,
+					TronBDDConnector.password);
             this.statement = this.connection.createStatement();
-            return true;
-        } catch (final SQLException exception) {
-            exception.printStackTrace();
-        }
-        return false;
-    }
+        } catch (final SQLException e) {
+			e.printStackTrace();
+		}
+		return true;
+	}
+
+	/*
+	 * private boolean open() { try { this.connection =
+	 * DriverManager.getConnection(TronBDDConnector.url, TronBDDConnector.user,
+	 * TronBDDConnector.password); this.statement =
+	 * this.connection.createStatement(); return true; } catch (final SQLException
+	 * exception) { exception.printStackTrace(); } return false; }
+	 */
 
     /**
      * Execute query.
@@ -126,6 +142,13 @@ final class LorannBDDConnector {
         return 0;
     }
 
+    public static synchronized TronBDDConnector getInstance() {
+		if (TronBDDConnector.instance == null) {
+			TronBDDConnector.instance = new TronBDDConnector();
+		}
+		return TronBDDConnector.instance;
+	}
+    
     /**
      * Gets the connection.
      *

@@ -2,11 +2,11 @@ package controller;
 
 public interface ILocation {
 
-	
-	
-	void setX(int y);
-	
 	int getX();
+	
+	void setX(int x);
+	
+	
 	
 	int getY();
 	

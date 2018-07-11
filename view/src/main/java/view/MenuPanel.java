@@ -47,7 +47,7 @@ public class MenuPanel extends JPanel implements Observer {
 		g.setColor(Color.GRAY);
 		final Font fonte = new Font("Zapfino", Font.BOLD, 15);
 		g.setFont(fonte);
-		g.drawString("Press ENTER three times for start the game", 290, 250);
+		g.drawString("Press ENTER for start the game", 325, 250);
 
 		/**
 		 * Insert a picture for the background
@@ -73,7 +73,7 @@ public class MenuPanel extends JPanel implements Observer {
 		}
 	}
 
-	@Override
+
 	public void update(Observable observable, Object arg) {
 		this.setModel((IModel) observable);
 		this.repaint();

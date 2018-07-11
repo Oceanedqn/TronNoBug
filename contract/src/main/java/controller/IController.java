@@ -13,7 +13,7 @@ import model.IModel;
 public interface IController {
 
 	
-	public void orderPerform(Order order);
+
 	/**
 	 * Set the model of the controller
 	 *
@@ -33,6 +33,11 @@ public interface IController {
 	public int time();
 	
 	public void orderPerform(Order keycode, int numPlayer);
+
+	public IModel getModel();
+
+	public int Clock();
+
 
 
 

@@ -1,8 +1,7 @@
 package model;
 
+import java.sql.SQLException;
 import java.util.Observable;
-
-import controller.IElement;
 
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
@@ -11,55 +10,109 @@ import controller.IElement;
  * @version 1.0
  */
 public final class Model extends Observable implements IModel {
-	private final Bike bikeJ1;
-	private final Bike bikeJ2;
+	private Bike bikeJ1;
+	private Bike bikeJ2;
 	
 	//private final int wall[][] = new int[598][2];
+	@SuppressWarnings("unused")
 	private int numberOfWall = 0;
 
 	/**
 	 * Instantiates a new model facade.
 	 */
 	public Model() {
-	//	super();
-		this.bikeJ1 = new Bike(20, 20);
-		this.bikeJ2 = new Bike(580, 380);
-		System.out.println("ON A DES MOTOS NOUS");
-		System.out.println(bikeJ1);
-		System.out.println(bikeJ2);
+
+		// super();
+		this.bikeJ1 = new Bike(120, 0);
+		this.bikeJ2 = new Bike(240, 0);
+		// System.out.println(bikeJ1);
+		// System.out.println(bikeJ2);
 	}
 	
 
-	public void flush() {
-		this.setChanged();
-		this.notifyObservers();
+
+
+	
+	
+
+	public int getBikeJ1X() {
+		return bikeJ1.getX();
 	}
-	
-	
-	public Observable getObservable() {
-		return this;
+
+	public int getBikeJ1Y() {
+		return bikeJ1.getY();
 	}
-	
-	
-	//NOUVEAUUUUUUUUUUUUUUUUUUUUUUU
-	public IModel getBikeJ1() {
-		return (IModel) this.bikeJ1;
+
+
+	public void setBikeJ1X(int x) {
+		this.bikeJ1.setX(x);
 	}
-	
-	public IModel getBikeJ2() {
-		return (IModel) this.bikeJ2;
+
+	public void setBikeJ1Y(int y) {
+		this.bikeJ1.setY(y);
+	}
+
+
+
+	public int getBikeJ2X() {
+		return bikeJ2.getX();
+	}
+
+	public int getBikeJ2Y() {
+		return bikeJ2.getY();
+	}
+
+
+	public void setBikeJ2X(int x) {
+		this.bikeJ2.setX(x);
+	}
+
+	public void setBikeJ2Y(int y) {
+		this.bikeJ2.setY(y);
+	}
+
+	public int positionJ1X() {
+		return this.bikeJ1.positionX();
+	}
+
+	public int positionJ1Y() {
+		return this.bikeJ1.positionY();
+	}
+
+	public int positionJ2X() {
+		return this.bikeJ2.positionX();
+	}
+
+	public int positionJ2Y() {
+		return this.bikeJ2.positionY();
 	}
 
 
 	@Override
-	public IElement getElement(int x, int y) {
+	public void message(String message, int time) throws SQLException {
 		// TODO Auto-generated method stub
-		return ((IModel) this.bikeJ1).getElement(x,y);
+
 	}
 
+	@Override
+	public void flush() {
+		// TODO Auto-generated method stub
 
+	}
 
+	@Override
+	public Observable getObservable() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
+	/*
+	 * public void message(String message, int time) throws SQLException {
+	 * TronBDDConnector dbConnection = TronBDDConnector.getInstance();
+	 * dbConnection.message(message, time);
+	 * 
+	 * }
+	 */
 
 
 	

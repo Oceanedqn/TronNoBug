@@ -66,6 +66,11 @@ public class View implements IView {
 		
 	}
 
+	@Override
+	public void finalTime() {
+		// TODO Auto-generated method stub
+
+	}
 	
 
 

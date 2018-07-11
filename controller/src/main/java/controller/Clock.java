@@ -17,7 +17,7 @@ public class Clock extends Thread {
 	/**
 	 * The default interval between two ticks
 	 */
-	public static int DEFAULT_TICK_INTERVAL = 100;
+	public static int DEFAULT_TICK_INTERVAL = 300;
 
 	private Controller controller;
 
@@ -45,13 +45,13 @@ public class Clock extends Thread {
 		this.stopped = false;
 	}
 
-	@Override
+
 	public void run() {
 		while (true) {
 			this.controller.update();
 			try {
 				Thread.sleep(this.tickInterval);
-			} catch (final InterruptedException e) {
+			} catch (InterruptedException e) {
 				System.err.println("Clock thread interrupted");
 				e.printStackTrace();
 			}
