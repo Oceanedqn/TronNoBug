@@ -1,4 +1,4 @@
-package model.dao;
+package model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -37,7 +37,7 @@ final class TronBDDConnector {
 	/**
 	 * Instantiates a new boulder dash BDD connector.
 	 */
-	private TronBDDConnector() {
+	TronBDDConnector() {
 		this.open();
 	}
 
@@ -85,8 +85,6 @@ final class TronBDDConnector {
 		}
 		return true;
 	}
-
-
 
 	/**
 	 * Execute query.
@@ -181,25 +179,23 @@ final class TronBDDConnector {
 		this.statement = statement;
 	}
 
-	public static void sauverEnBase(String player, int time) {
-		String url = "jdbc:mysql://localhost/lorann";
+	public TronBDDConnector sauverEnBase(String player, int time) {
+		String url = "jdbc:mysql://localhost/lorann?useSSL=false&serverTimezone=UTC";
 		String login = "root";
 		String passvd = "";
 		Connection cn = null;
 		Statement st = null;
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+
 			cn = DriverManager.getConnection(url, login, passvd);
 			st = cn.createStatement();
-			String sql = "INSERT INTO `lorann` (`player_win`), (`player_time`) (`" + player + time + "`)";
+			String sql = "INSERT INTO `lorann` (`player_win`), (`player_time`) VALUES (`" + player + time + "`)";
 
 			st.executeQuery(sql);
 		} catch (SQLException e) {
 			e.printStackTrace();
 
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} finally {
 			try {
 				cn.close();
@@ -208,6 +204,7 @@ final class TronBDDConnector {
 				e.printStackTrace();
 			}
 		}
+		return instance;
 	}
 
 }

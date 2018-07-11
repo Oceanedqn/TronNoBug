@@ -186,6 +186,7 @@ public class Controller implements IController {
 				break;
 			}
 
+
 			if (!collisionOn(this.getModel().getBikeJ1X(), this.getModel().getBikeJ1Y(), this.getModel().getBikeJ2X(),
 					this.getModel().getBikeJ2Y())) {
 				end("PLAYER TWO WIN");

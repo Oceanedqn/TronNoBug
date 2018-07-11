@@ -87,8 +87,8 @@ class Windows extends JFrame implements KeyListener, IView
 
 	/*
 	 * public void actionPerformed(ActionEvent arg0) throws SQLException {
-	 * closeWindows(); Windows win = new Windows(); setController(this.controller);
-	 * position(); this.controller.start(); }
+	 * closeWindows(); setController(this.controller); position();
+	 * this.controller.start(); }
 	 */
 
 	public IController getController() {
@@ -240,12 +240,18 @@ class Windows extends JFrame implements KeyListener, IView
 		return null;
 	}
 
+
 	public void setClock() {
 		this.clock.setTimer((this.controller.Clock()));
 	}
 
-	@Override
+
 	public void finalTime() {
+		this.setTime();
+
+	}
+
+	private void setTime() {
 		// TODO Auto-generated method stub
 
 	}

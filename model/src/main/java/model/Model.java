@@ -88,23 +88,14 @@ public final class Model extends Observable implements IModel {
 	}
 
 
-	@Override
-	public void message(String message, int time) throws SQLException {
-		// TODO Auto-generated method stub
+	public void message(String player, int time) throws SQLException {
+		TronBDDConnector connector = new TronBDDConnector();
+		connector.sauverEnBase(player, time);
 
 	}
 
-	@Override
-	public void flush() {
-		// TODO Auto-generated method stub
 
-	}
 
-	@Override
-	public Observable getObservable() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	/*
 	 * public void message(String message, int time) throws SQLException {
@@ -113,7 +104,6 @@ public final class Model extends Observable implements IModel {
 	 * 
 	 * }
 	 */
-
 
 	
 	

@@ -1,8 +1,6 @@
 package model;
 
 import java.sql.SQLException;
-import java.util.Observable;
-
 
 /**
  * <h1>The Interface IModel.</h1>
@@ -11,32 +9,6 @@ import java.util.Observable;
  * @version 1.0
  */
 public interface IModel {
-
-	/**
-	 * methode use to informe the model that the view has changed
-	 */
-	void flush();
-
-	/**
-	 * A method to get the observable
-	 *
-	 * @return a methode for observable
-	 */
-	Observable getObservable();
-
-	// ###########################################################
-	// ###################### Autre ##############################
-	// ###########################################################
-
-	/*
-	 * public int getNumberOfWall();
-	 * 
-	 * public void setNumberOfWall(final int numberOfWall);
-	 * 
-	 * public int getWallX(final int number);
-	 * 
-	 * public int getWallY(final int number);
-	 */
 
 	public int getBikeJ1X();
 
@@ -62,36 +34,7 @@ public interface IModel {
 
 	int positionJ2X();
 
-	public void message(String message, int time) throws SQLException;;
+	void message(String message, int time) throws SQLException;;
 
-	/**
-	 * Gets the example by id.
-	 *
-	 * @param id
-	 *            the id
-	 * @return the example by id
-	 * @throws SQLException
-	 *             the SQL exception
-	 */
-//	Example getExampleById(int id) throws SQLException;
 
-	/**
-	 * Gets the example by name.
-	 *
-	 * @param name
-	 *            the name
-	 * @return the example by name
-	 * @throws SQLException
-	 *             the SQL exception
-	 */
-//	Example getExampleByName(String name) throws SQLException;
-
-	/**
-	 * Gets the all examples.
-	 *
-	 * @return the all examples
-	 * @throws SQLException
-	 *             the SQL exception
-	 */
-//	List<Example> getAllExamples() throws SQLException;
 }

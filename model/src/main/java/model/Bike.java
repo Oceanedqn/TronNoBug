@@ -1,6 +1,6 @@
 package model;
 
-public class Bike implements IBike {
+public class Bike {
 
 	private int x;
 	private int y;

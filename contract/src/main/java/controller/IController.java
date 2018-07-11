@@ -28,9 +28,6 @@ public interface IController {
 	 * @throws SQLException
 	 */
 	public void start() throws SQLException;
-
-
-	public int time();
 	
 	public void orderPerform(Order keycode, int numPlayer);
 
