@@ -41,6 +41,8 @@ class Windows extends JFrame implements KeyListener, IView {
 	/** The game. */
 	private GamePanel game = new GamePanel();
 
+
+
 	/**
 	 * Instantiates a new windows.
 	 */
@@ -133,7 +135,6 @@ class Windows extends JFrame implements KeyListener, IView {
 			if (!dejaAppuyer) {
 				dejaAppuyer = true;
 				game.update(controller.getModel());
-				// this.setContentPane(this.game);
 				this.clock = new Clock();
 				this.clock.setLocation(800, 70);
 				this.game.add(clock);
@@ -141,58 +142,58 @@ class Windows extends JFrame implements KeyListener, IView {
 				this.repaint();
 				SwingUtilities.updateComponentTreeUI(this);
 			} else
-				System.out.println("deja appuyer mon pote");
+				// System.out.println("deja appuyer mon pote");
 
 			break;
 
 		case KeyEvent.VK_SPACE:
-			System.out.println("Space");
+			// System.out.println("Space");
 			this.controller.orderPerform(Order.SPACE, 4);
 			break;
 		case KeyEvent.VK_Z:
-			System.out.println("Up");
+			// System.out.println("Up");
 			this.controller.orderPerform(Order.UP, 1);
 			this.getGamePanel().setJ1y(controller.getModel().getBikeJ1Y());
 			this.getGamePanel().repaint();
 			break;
 		case KeyEvent.VK_Q:
-			System.out.println("Left");
+			// System.out.println("Left");
 			this.controller.orderPerform(Order.LEFT, 1);
 			this.getGamePanel().setJ1x(controller.getModel().getBikeJ1X());
 			this.getGamePanel().repaint();
 			break;
 		case KeyEvent.VK_S:
-			System.out.println("Down");
+			// System.out.println("Down");
 			this.controller.orderPerform(Order.DOWN, 1);
 			this.getGamePanel().setJ1y(controller.getModel().getBikeJ1Y());
 			this.getGamePanel().repaint();
 			break;
 		case KeyEvent.VK_D:
-			System.out.println("Right");
+			// System.out.println("Right");
 			this.controller.orderPerform(Order.RIGHT, 1);
 			this.getGamePanel().setJ1x(controller.getModel().getBikeJ1X());
 			this.getGamePanel().repaint();
 			break;
 		case KeyEvent.VK_UP:
-			System.out.println("Up");
+			// System.out.println("Up");
 			this.controller.orderPerform(Order.UP, 2);
 			this.getGamePanel().setJ2y(controller.getModel().getBikeJ2Y());
 			this.getGamePanel().repaint();
 			break;
 		case KeyEvent.VK_LEFT:
-			System.out.println("Left");
+			// System.out.println("Left");
 			this.controller.orderPerform(Order.LEFT, 2);
 			this.getGamePanel().setJ2x(controller.getModel().getBikeJ2X());
 			this.getGamePanel().repaint();
 			break;
 		case KeyEvent.VK_DOWN:
-			System.out.println("Down");
+			// System.out.println("Down");
 			this.controller.orderPerform(Order.DOWN, 2);
 			this.getGamePanel().setJ2y(controller.getModel().getBikeJ2Y());
 			this.getGamePanel().repaint();
 			break;
 		case KeyEvent.VK_RIGHT:
-			System.out.println("Right");
+			// System.out.println("Right");
 			this.controller.orderPerform(Order.RIGHT, 2);
 			this.getGamePanel().setJ2x(controller.getModel().getBikeJ2X());
 			this.getGamePanel().repaint();

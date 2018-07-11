@@ -30,6 +30,7 @@ public class Clock extends Thread {
 		this.tickNumber = 0;
 		this.setTickInterval(Clock.DEFAULT_TICK_INTERVAL);
 		this.controller = controller;
+
 	}
 
 	/**
@@ -50,15 +51,18 @@ public class Clock extends Thread {
 	 * @see java.lang.Thread#run()
 	 */
 	public void run() {
+		// this.tickNumber++;
+		System.out.println(tickNumber);
 		while (true) {
 			this.controller.update();
 			try {
 				Thread.sleep(this.tickInterval);
 			} catch (InterruptedException e) {
-				System.err.println("Clock thread interrupted");
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			// this.tickNumber++;
+
+
 		}
 	}
 

@@ -62,7 +62,7 @@ public class MenuPanel extends JPanel implements Observer {
 			final Image img = ImageIO
 					.read(new File("D:\\Document\\Java\\Utiliser\\tron\\Tron\\lorann\\pictures\\TronRose.png"));
 			g.drawImage(img, 320, 50, this);
-			System.out.println("On met l'image en bleu");
+			// System.out.println("On met l'image en bleu");
 		} catch (final IOException e) {
 			e.printStackTrace();
 		}
@@ -73,7 +73,7 @@ public class MenuPanel extends JPanel implements Observer {
 			final Image img = ImageIO
 					.read(new File("D:\\Document\\Java\\Utiliser\\tron\\Tron\\lorann\\pictures\\TronBleu.png"));
 			g.drawImage(img, 320, 50, this);
-			System.out.println("On met l'image en rouge");
+			// System.out.println("On met l'image en rouge");
 		} catch (final IOException e) {
 			e.printStackTrace();
 		}

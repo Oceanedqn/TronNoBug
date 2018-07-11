@@ -38,6 +38,7 @@ public class Controller implements IController {
 
 		this.setView(view);
 		this.setModel(model);
+		;
 
 		// this.view.position();
 	}
@@ -53,7 +54,8 @@ public class Controller implements IController {
 		// this.model.getObservable().addObserver(this.view.getObserver());
 		this.clock = new Clock(this);
 		this.clock.start();
-		System.out.println("Start");
+
+		// System.out.println("Start");
 		// this.getView().displayMessage(this.getModel().getExampleById(1).toString());
 
 		// this.getView().displayMessage(this.getModel().getExampleByName("Example
@@ -139,14 +141,14 @@ public class Controller implements IController {
 	public void orderPerform(Order keycode, int numPlayer) {
 
 		if (numPlayer == 3) {
-			System.out.println("caca");
+			// System.out.println("caca");
 			inGame = true;
 		}
 
 		if (inGame) {
 			if (numPlayer == 1) {
 				this.lastKeyCodeJ1 = keycode;
-				System.out.println("Joueur 1 qui joue");
+				// System.out.println("Joueur 1 qui joue");
 
 				if (keycode == Order.DOWN) {
 					ActionPerform(this.lastKeyCodeJ1, 1);
@@ -164,7 +166,7 @@ public class Controller implements IController {
 
 			if (numPlayer == 2) {
 				this.lastKeyCodeJ2 = keycode;
-				System.out.println("Joueur 2 qui joue");
+				// System.out.println("Joueur 2 qui joue");
 
 				if (keycode == Order.DOWN) {
 					ActionPerform(this.lastKeyCodeJ2, 2);
@@ -201,7 +203,6 @@ public class Controller implements IController {
 			switch (order) {
 			case UP:
 				this.getModel().setBikeJ1Y(this.getModel().positionJ1Y() - 20);
-				System.out.println("test");
 				break;
 			case DOWN:
 				this.getModel().setBikeJ1Y(this.getModel().positionJ1Y() + 20);
@@ -234,7 +235,6 @@ public class Controller implements IController {
 			switch (order) {
 			case UP:
 				this.getModel().setBikeJ2Y(this.getModel().positionJ2Y() - 20);
-				System.out.println("test");
 				break;
 			case DOWN:
 				this.getModel().setBikeJ2Y(this.getModel().positionJ2Y() + 20);
@@ -295,7 +295,7 @@ public class Controller implements IController {
 		if (x == xx && y == yy) {
 			validate = 0;
 			end();
-			this.view.finalTime();
+			// this.view.finalTime();
 		}
 
 		if (validate == 0) {
@@ -315,9 +315,8 @@ public class Controller implements IController {
 	public void end() {
 		this.getView().closeWindows();
 		this.Clock();
-		System.out.println(Clock());
+		// System.out.println(Clock());
 		clock.stopClock();
-		// this.clock.stop();
 		// System.exit(0);
 
 	}
@@ -326,6 +325,7 @@ public class Controller implements IController {
 	 * Update.
 	 */
 	public void update() {
+
 		this.getView().position();
 		this.getView().repaint();
 
@@ -361,8 +361,8 @@ public class Controller implements IController {
 	 * @see controller.IController#Clock()
 	 */
 	public int Clock() {
-
 		return this.clock.getTickNumber();
+
 	}
 
 }
