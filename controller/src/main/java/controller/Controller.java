@@ -227,7 +227,7 @@ public class Controller implements IController {
 				// end("PLAYER TWO WIN");
 				end();
 				javax.swing.JOptionPane.showMessageDialog(null, "J2 WIN");
-				this.view.finalTime();
+				// this.view.finalTime();
 			}
 		}
 		if (keycode == 2) {
@@ -260,7 +260,7 @@ public class Controller implements IController {
 				// end("PLAYER ONE WIN");
 				end();
 				javax.swing.JOptionPane.showMessageDialog(null, "J1 WIN");
-				this.view.finalTime();
+				// this.view.finalTime();
 			}
 		}
 
@@ -316,8 +316,8 @@ public class Controller implements IController {
 		this.getView().closeWindows();
 		this.Clock();
 		System.out.println(Clock());
-
-		this.clock.stop();
+		clock.stopClock();
+		// this.clock.stop();
 		// System.exit(0);
 
 	}

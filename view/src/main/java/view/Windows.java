@@ -92,11 +92,7 @@ class Windows extends JFrame implements KeyListener, IView {
 		return this.game;
 	}
 
-	/*
-	 * public void actionPerformed(ActionEvent arg0) throws SQLException {
-	 * closeWindows(); setController(this.controller); position();
-	 * this.controller.start(); }
-	 */
+
 
 	/**
 	 * Gets the controller.

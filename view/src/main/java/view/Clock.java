@@ -24,6 +24,7 @@ public class Clock extends JPanel {
 		this.add(clock);
 	}
 
+
 	/**
 	 * Sets the timer.
 	 *
@@ -34,4 +35,5 @@ public class Clock extends JPanel {
 		this.timer = timer;
 		this.clock.setText("Timer : " + timer);
 	}
+
 }
