@@ -4,17 +4,11 @@ import java.util.Observer;
 
 import controller.IController;
 
-/**
- * <h1>The Class ViewFacade provides a facade of the View component.</h1>
- *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
- */
 public class View implements IView {
 
+	/** The win. */
 	private Windows win;
 
-	
 	// private IModel model;
 
 	/**
@@ -24,54 +18,64 @@ public class View implements IView {
 		this.win = new Windows();
 
 	}
-	
-	
+
+	/*
+	 * @see view.IView#repaint()
+	 */
 	public void repaint() {
 
 	}
 
+	/*
+	 * @see view.IView#openWindows()
+	 */
 	public void openWindows() {
 		this.win.setVisible(true);
 	}
 
-
+	/*
+	 * @see view.IView#closeWindows()
+	 */
 	public void closeWindows() {
 		this.win.setVisible(false);
 	}
-	
-	
+
+	/*
+	 * @see view.IView#getObserver()
+	 */
 	public Observer getObserver() {
 		return (Observer) this.win.getGamePanel();
 	}
-	
+
+	/*
+	 * @see view.IView#setController(controller.IController)
+	 */
 	public void setController(IController controller) {
 		this.win.setController(controller);
 	}
 
-
-	
-	
-	
-	
+	/*
+	 * @see view.IView#displayMessage(java.lang.String)
+	 */
 	@Override
 	public void displayMessage(String message) {
-		// TODO Auto-generated method stub
-		
+
 	}
 
-
+	/*
+	 * @see view.IView#position()
+	 */
 	@Override
 	public void position() {
-		// TODO Auto-generated method stub
-		
+
 	}
 
+	/*
+	 * @see view.IView#finalTime()
+	 */
 	@Override
 	public void finalTime() {
-		// TODO Auto-generated method stub
 
 	}
-	
-
 
 }

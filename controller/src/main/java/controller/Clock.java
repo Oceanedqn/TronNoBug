@@ -1,24 +1,23 @@
 package controller;
 
+/**
+ * The Class Clock.
+ */
 public class Clock extends Thread {
 
-	/**
-	 * The number of ticks since the beginning of the game
-	 */
+	/** The number of ticks since the beginning of the game. */
 	private int tickNumber;
-	/**
-	 * The interval between two ticks
-	 */
+
+	/** The interval between two ticks. */
 	private long tickInterval;
-	/**
-	 * Representing if the clock is stopped or started
-	 */
+
+	/** Representing if the clock is stopped or started. */
 	private boolean stopped;
-	/**
-	 * The default interval between two ticks
-	 */
+
+	/** The default interval between two ticks. */
 	public static int DEFAULT_TICK_INTERVAL = 300;
 
+	/** The controller. */
 	private Controller controller;
 
 	/**
@@ -45,7 +44,11 @@ public class Clock extends Thread {
 		this.stopped = false;
 	}
 
-
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Thread#run()
+	 */
 	public void run() {
 		while (true) {
 			this.controller.update();
@@ -99,12 +102,18 @@ public class Clock extends Thread {
 	}
 
 	/**
-	 * Stop the clock
+	 * Stop the clock.
 	 */
 	public void stopClock() {
 		this.stopped = true;
 	}
 
+	/**
+	 * Sets the tick interval.
+	 *
+	 * @param tickInterval2
+	 *            the new tick interval
+	 */
 	private void setTickInterval(final int tickInterval2) {
 		// TODO Auto-generated method stub
 

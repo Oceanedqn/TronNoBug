@@ -12,12 +12,10 @@ import javax.swing.SwingUtilities;
 import controller.IController;
 import controller.Order;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Windows.
  */
-class Windows extends JFrame implements KeyListener, IView
-{
+class Windows extends JFrame implements KeyListener, IView {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 5540868149981434301L;
@@ -31,12 +29,16 @@ class Windows extends JFrame implements KeyListener, IView
 	/** The controller. */
 	private IController controller;
 
+	/** The deja appuyer. */
 	boolean dejaAppuyer = false;
 
+	/** The clock. */
 	private Clock clock;
 
 	/** The menuu. */
 	private MenuPanel menuu;
+
+	/** The game. */
 	private GamePanel game = new GamePanel();
 
 	/**
@@ -59,7 +61,7 @@ class Windows extends JFrame implements KeyListener, IView
 	}
 
 	/*
-	 * (non-Javadoc)
+	 * repaint
 	 * 
 	 * @see java.awt.Component#repaint()
 	 */
@@ -81,6 +83,11 @@ class Windows extends JFrame implements KeyListener, IView
 		return this.menuu;
 	}
 
+	/**
+	 * Gets the game panel.
+	 *
+	 * @return the game panel
+	 */
 	public GamePanel getGamePanel() {
 		return this.game;
 	}
@@ -91,22 +98,32 @@ class Windows extends JFrame implements KeyListener, IView
 	 * this.controller.start(); }
 	 */
 
+	/**
+	 * Gets the controller.
+	 *
+	 * @return the controller
+	 */
 	public IController getController() {
 		return controller;
 	}
 
+	/*
+	 * @see view.IView#setController(controller.IController)
+	 */
 	public void setController(IController controller) {
 		this.controller = controller;
 		// this.setController(controller);
 	}
 
+	/*
+	 * @see view.IView#displayMessage(java.lang.String)
+	 */
 	public final void displayMessage(final String message) {
 		JOptionPane.showMessageDialog(null, message);
 	}
 
-
 	/*
-	 * (non-Javadoc)
+	 * Move the bike
 	 * 
 	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
 	 */
@@ -131,7 +148,6 @@ class Windows extends JFrame implements KeyListener, IView
 				System.out.println("deja appuyer mon pote");
 
 			break;
-
 
 		case KeyEvent.VK_SPACE:
 			System.out.println("Space");
@@ -189,7 +205,7 @@ class Windows extends JFrame implements KeyListener, IView
 	}
 
 	/*
-	 * (non-Javadoc)
+	 * *
 	 * 
 	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
 	 */
@@ -200,7 +216,7 @@ class Windows extends JFrame implements KeyListener, IView
 	}
 
 	/*
-	 * (non-Javadoc)
+	 * 
 	 * 
 	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
 	 */
@@ -210,42 +226,60 @@ class Windows extends JFrame implements KeyListener, IView
 
 	}
 
-
+	/*
+	 * @see view.IView#openWindows()
+	 */
 	@Override
 	public void openWindows() {
 		// TODO Auto-generated method stub
 
 	}
 
+	/*
+	 * @see view.IView#closeWindows()
+	 */
 	@Override
 	public void closeWindows() {
 		this.setVisible(false);
 
 	}
 
+	/*
+	 * @see view.IView#position()
+	 */
 	@Override
 	public void position() {
 		this.position();
 
 	}
 
+	/*
+	 * @see view.IView#getObserver()
+	 */
 	@Override
 	public Observer getObserver() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
+	/**
+	 * Sets the clock.
+	 */
 	public void setClock() {
 		this.clock.setTimer((this.controller.Clock()));
 	}
 
-
+	/*
+	 * @see view.IView#finalTime()
+	 */
 	public void finalTime() {
 		this.setTime();
 
 	}
 
+	/**
+	 * Sets the time.
+	 */
 	private void setTime() {
 		// TODO Auto-generated method stub
 

@@ -16,13 +16,13 @@ import view.View;
  */
 public abstract class Main {
 
-
 	/**
 	 * The main method.
 	 *
 	 * @param args
 	 *            the arguments
 	 * @throws SQLException
+	 *             the SQL exception
 	 */
 	public static void main(final String[] args) throws SQLException {
 		try {
@@ -34,7 +34,7 @@ public abstract class Main {
 			// handle the error
 		}
 
-		final Model model = new Model();		
+		final Model model = new Model();
 		final View view = new View();
 
 		final Controller controller = new Controller(view, model);
@@ -42,7 +42,6 @@ public abstract class Main {
 		controller.start();
 		// final ControllerFacade controller = new ControllerFacade(new ViewFacade(),
 		// new ModelFacade());
-
 
 	}
 

@@ -8,6 +8,7 @@ import java.sql.Statement;
 
 import com.mysql.cj.jdbc.CallableStatement;
 
+// TODO: Auto-generated Javadoc
 /**
  * <h1>The Class BoulderDashBDDConnector.</h1>
  *
@@ -41,6 +42,16 @@ final class TronBDDConnector {
 		this.open();
 	}
 
+	/**
+	 * Message.
+	 *
+	 * @param message
+	 *            the message
+	 * @param time
+	 *            the time
+	 * @throws SQLException
+	 *             the SQL exception
+	 */
 	public void message(String message, int time) throws SQLException {
 		System.out.println("envoie" + message + "test");
 		final String sql = "{CALL Message(?, ?)}";
@@ -85,8 +96,6 @@ final class TronBDDConnector {
 		}
 		return true;
 	}
-
-
 
 	/**
 	 * Execute query.
@@ -136,6 +145,11 @@ final class TronBDDConnector {
 		return 0;
 	}
 
+	/**
+	 * Gets the single instance of TronBDDConnector.
+	 *
+	 * @return single instance of TronBDDConnector
+	 */
 	public static synchronized TronBDDConnector getInstance() {
 		if (TronBDDConnector.instance == null) {
 			TronBDDConnector.instance = new TronBDDConnector();
@@ -181,6 +195,14 @@ final class TronBDDConnector {
 		this.statement = statement;
 	}
 
+	/**
+	 * Sauver en base.
+	 *
+	 * @param player
+	 *            the player
+	 * @param time
+	 *            the time
+	 */
 	public static void sauverEnBase(String player, int time) {
 		String url = "jdbc:mysql://localhost/lorann";
 		String login = "root";

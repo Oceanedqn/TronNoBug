@@ -14,23 +14,29 @@ import javax.swing.JPanel;
 
 import model.IModel;
 
+/**
+ * The Class MenuPanel.
+ */
 public class MenuPanel extends JPanel implements Observer {
-	/**
-	 *
-	 */
+
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
+	/** The model. */
 	private IModel model;
 
 	/**
-	 * Constructor
+	 * Constructor.
 	 */
 	public MenuPanel() {
 		setVisible(true);
 	}
 
 	/**
-	 * Method for draw the menu
+	 * Method for draw the menu.
+	 *
+	 * @param g
+	 *            the g
 	 */
 	@Override
 	public void paintComponent(final Graphics g) {
@@ -73,20 +79,32 @@ public class MenuPanel extends JPanel implements Observer {
 		}
 	}
 
-
+	/*
+	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
+	 */
 	public void update(Observable observable, Object arg) {
 		this.setModel((IModel) observable);
 		this.repaint();
 
 	}
 
+	/**
+	 * Gets the model.
+	 *
+	 * @return the model
+	 */
 	public IModel getModel() {
 		return model;
 	}
 
+	/**
+	 * Sets the model.
+	 *
+	 * @param model
+	 *            the new model
+	 */
 	public void setModel(IModel model) {
 		this.model = model;
 	}
-
 
 }

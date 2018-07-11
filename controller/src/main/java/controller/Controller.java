@@ -5,28 +5,25 @@ import java.sql.SQLException;
 import model.IModel;
 import view.IView;
 
-/**
- * <h1>The Class ControllerFacade provides a facade of the Controller
- * component.</h1>
- *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
- */
 public class Controller implements IController {
 
 	/** The view. */
 
 	private IView view;
 
+	/** The model. */
 	private IModel model;
 
-	/** The Clock of the game */
+	/** The Clock of the game. */
 	private Clock clock;
 
+	/** The in game. */
 	private boolean inGame = false;
 
+	/** The last key code J 2. */
 	private Order lastKeyCodeJ2;
 
+	/** The last key code J 1. */
 	private Order lastKeyCodeJ1;
 
 	/**
@@ -41,7 +38,6 @@ public class Controller implements IController {
 
 		this.setView(view);
 		this.setModel(model);
-
 
 		// this.view.position();
 	}
@@ -72,29 +68,56 @@ public class Controller implements IController {
 		// this.getView().displayMessage(message.toString());
 	}
 
+	/**
+	 * Move bike J 1 X.
+	 *
+	 * @return the int
+	 */
 	public int moveBikeJ1X() {
 		return this.model.getBikeJ1X();
 	}
 
+	/**
+	 * Move bike J 1 Y.
+	 *
+	 * @return the int
+	 */
 	public int moveBikeJ1Y() {
 		return this.model.getBikeJ1Y();
 	}
 
+	/**
+	 * Move bike J 2 X.
+	 *
+	 * @return the int
+	 */
 	public int moveBikeJ2X() {
 		return this.model.getBikeJ2X();
 	}
 
+	/**
+	 * Move bike J 2 Y.
+	 *
+	 * @return the int
+	 */
 	public int moveBikeJ2Y() {
 		return this.model.getBikeJ2Y();
 	}
 
+	/**
+	 * Collision.
+	 *
+	 * @param positionX
+	 *            the position X
+	 * @param positionY
+	 *            the position Y
+	 * @return the int
+	 */
 	// RETOURNE JUSTE X
 	public int collision(final int positionX, final int positionY) {
 		return positionX;
 
 	}
-
-
 
 	/**
 	 * Sets the model.
@@ -107,7 +130,12 @@ public class Controller implements IController {
 		this.model = model;
 	}
 
-	@Override
+	/*
+	 * @see controller.IController#orderPerform(controller.Order, int) method to
+	 * manage the actions of the players
+	 * 
+	 */
+
 	public void orderPerform(Order keycode, int numPlayer) {
 
 		if (numPlayer == 3) {
@@ -160,6 +188,14 @@ public class Controller implements IController {
 
 	}
 
+	/**
+	 * Action perform. For the travel of players
+	 * 
+	 * @param order
+	 *            the order
+	 * @param keycode
+	 *            the keycode
+	 */
 	public void ActionPerform(Order order, int keycode) {
 		if (keycode == 1) {
 			switch (order) {
@@ -186,46 +222,62 @@ public class Controller implements IController {
 				break;
 			}
 
-
 			if (!collisionOn(this.getModel().getBikeJ1X(), this.getModel().getBikeJ1Y(), this.getModel().getBikeJ2X(),
 					this.getModel().getBikeJ2Y())) {
 				end("PLAYER TWO WIN");
+				this.view.finalTime();
 			}
 		}
-			if (keycode == 2) {
-				switch (order) {
-				case UP:
+		if (keycode == 2) {
+			switch (order) {
+			case UP:
 				this.getModel().setBikeJ2Y(this.getModel().positionJ2Y() - 20);
 				System.out.println("test");
-					break;
-				case DOWN:
+				break;
+			case DOWN:
 				this.getModel().setBikeJ2Y(this.getModel().positionJ2Y() + 20);
-					break;
-				case ENTER:
-					break;
-				case LEFT:
+				break;
+			case ENTER:
+				break;
+			case LEFT:
 				this.getModel().setBikeJ2X(this.getModel().positionJ2X() - 20);
-					break;
-				case PAUSE:
-					break;
-				case RIGHT:
+				break;
+			case PAUSE:
+				break;
+			case RIGHT:
 				this.getModel().setBikeJ2X(this.getModel().positionJ2X() + 20);
-					break;
-				case SPACE:
-					break;
-				default:
-					break;
-				}
-				
+				break;
+			case SPACE:
+				break;
+			default:
+				break;
+			}
+
 			if (!collisionOn(this.getModel().getBikeJ2X(), this.getModel().getBikeJ2Y(), this.getModel().getBikeJ1X(),
 					this.getModel().getBikeJ1Y())) {
 				end("PLAYER ONE WIN");
-				}
+				this.view.finalTime();
 			}
-			
-
 		}
 
+	}
+
+	/**
+	 * Collision on.
+	 *
+	 * so that players do not get out of the grid and that players do not touch each
+	 * other
+	 * 
+	 * @param x
+	 *            the x
+	 * @param y
+	 *            the y
+	 * @param xx
+	 *            the xx
+	 * @param yy
+	 *            the yy
+	 * @return true, if successful
+	 */
 	public boolean collisionOn(int x, int y, int xx, int yy) {
 		int validate = 1;
 		if (x > 580 || x < 0) {
@@ -238,6 +290,7 @@ public class Controller implements IController {
 
 		if (x == xx && y == yy) {
 			end("NO WIINEUR");
+			this.view.finalTime();
 		}
 
 		if (validate == 0) {
@@ -247,7 +300,13 @@ public class Controller implements IController {
 		}
 	}
 
-	@SuppressWarnings("deprecation")
+	/**
+	 * End. Show final message
+	 *
+	 * @param message
+	 *            the message
+	 */
+
 	public void end(String message) {
 		try {
 			this.model.message(message, this.clock.getTickNumber());
@@ -262,32 +321,53 @@ public class Controller implements IController {
 
 	}
 
+	/**
+	 * Time.
+	 *
+	 * @return the int
+	 */
 	public int time() {
 		return this.clock.getTickNumber();
 	}
 
+	/**
+	 * Update.
+	 */
 	public void update() {
 		this.getView().position();
 		this.getView().repaint();
-		this.view.finalTime();
 
 	}
 
-
+	/*
+	 * @see controller.IController#getModel()
+	 */
 	public IModel getModel() {
 		return this.model;
 	}
 
+	/**
+	 * Gets the view.
+	 *
+	 * @return the view
+	 */
 	public IView getView() {
 		return view;
 	}
 
+	/**
+	 * Sets the view.
+	 *
+	 * @param view
+	 *            the new view
+	 */
 	public void setView(IView view) {
 		this.view = view;
 	}
 
-
-
+	/*
+	 * @see controller.IController#Clock()
+	 */
 	public int Clock() {
 
 		return this.clock.getTickNumber();
