@@ -103,12 +103,7 @@ class Windows extends JFrame implements KeyListener, IView
 	public final void displayMessage(final String message) {
 		JOptionPane.showMessageDialog(null, message);
 	}
-	/*
-	 * public void position() { this.game.setJ1x(this.controller.getBikeJ1X());
-	 * this.game.setJ1y(this.controller.getBikeJ1Y());
-	 * this.game.setJ2x(this.controller.getBikeJ2X());
-	 * this.game.setJ2y(this.controller.getBikeJ2Y()); }
-	 */
+
 
 	/*
 	 * (non-Javadoc)
