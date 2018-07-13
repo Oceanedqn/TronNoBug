@@ -14,8 +14,7 @@ public class Controller implements IController {
 	/** The model. */
 	private IModel model;
 
-	/** The Clock of the game. */
-	// private Clock clock;
+
 
 	/** The in game. */
 	private boolean inGame = false;
@@ -53,7 +52,7 @@ public class Controller implements IController {
 	public void start() throws SQLException {
 		// this.model.getObservable().addObserver(this.view.getObserver());;
 
-
+		// clock.run();
 
 		// System.out.println("Start");
 		// this.getView().displayMessage(this.getModel().getExampleById(1).toString());
@@ -70,67 +69,7 @@ public class Controller implements IController {
 		// this.getView().displayMessage(message.toString());
 	}
 
-	/**
-	 * Move bike J 1 X.
-	 *
-	 * @return the int
-	 */
-	public int moveBikeJ1X() {
-		return this.model.getBikeJ1X();
-	}
 
-	/**
-	 * Move bike J 1 Y.
-	 *
-	 * @return the int
-	 */
-	public int moveBikeJ1Y() {
-		return this.model.getBikeJ1Y();
-	}
-
-	/**
-	 * Move bike J 2 X.
-	 *
-	 * @return the int
-	 */
-	public int moveBikeJ2X() {
-		return this.model.getBikeJ2X();
-	}
-
-	/**
-	 * Move bike J 2 Y.
-	 *
-	 * @return the int
-	 */
-	public int moveBikeJ2Y() {
-		return this.model.getBikeJ2Y();
-	}
-
-	/**
-	 * Collision.
-	 *
-	 * @param positionX
-	 *            the position X
-	 * @param positionY
-	 *            the position Y
-	 * @return the int
-	 */
-	// RETOURNE JUSTE X
-	public int collision(final int positionX, final int positionY) {
-		return positionX;
-
-	}
-
-	/**
-	 * Sets the model.
-	 *
-	 * @param model
-	 *            the new model
-	 */
-
-	public void setModel(final IModel model) {
-		this.model = model;
-	}
 
 	/*
 	 * @see controller.IController#orderPerform(controller.Order, int) method to
@@ -201,10 +140,13 @@ public class Controller implements IController {
 	public void ActionPerform(Order order, int keycode) {
 		if (keycode == 1) {
 			switch (order) {
+
+			case PAUSE:
+				break;
 			case UP:
 				this.getModel().setBikeJ1Y(this.getModel().positionJ1Y() - 20);
 				// this.getModel().setTabBlock(this.getModel().)
-				;
+
 				break;
 			case DOWN:
 				this.getModel().setBikeJ1Y(this.getModel().positionJ1Y() + 20);
@@ -213,8 +155,6 @@ public class Controller implements IController {
 				break;
 			case LEFT:
 				this.getModel().setBikeJ1X(this.getModel().positionJ1X() - 20);
-				break;
-			case PAUSE:
 				break;
 			case RIGHT:
 				this.getModel().setBikeJ1X(this.getModel().positionJ1X() + 20);
@@ -363,5 +303,67 @@ public class Controller implements IController {
 	}
 
 
+
+	/**
+	 * Move bike J 1 X.
+	 *
+	 * @return the int
+	 */
+	public int moveBikeJ1X() {
+		return this.model.getBikeJ1X();
+	}
+
+	/**
+	 * Move bike J 1 Y.
+	 *
+	 * @return the int
+	 */
+	public int moveBikeJ1Y() {
+		return this.model.getBikeJ1Y();
+	}
+
+	/**
+	 * Move bike J 2 X.
+	 *
+	 * @return the int
+	 */
+	public int moveBikeJ2X() {
+		return this.model.getBikeJ2X();
+	}
+
+	/**
+	 * Move bike J 2 Y.
+	 *
+	 * @return the int
+	 */
+	public int moveBikeJ2Y() {
+		return this.model.getBikeJ2Y();
+	}
+
+	/**
+	 * Collision.
+	 *
+	 * @param positionX
+	 *            the position X
+	 * @param positionY
+	 *            the position Y
+	 * @return the int
+	 */
+	// RETOURNE JUSTE X
+	public int collision(final int positionX, final int positionY) {
+		return positionX;
+
+	}
+
+	/**
+	 * Sets the model.
+	 *
+	 * @param model
+	 *            the new model
+	 */
+
+	public void setModel(final IModel model) {
+		this.model = model;
+	}
 
 }

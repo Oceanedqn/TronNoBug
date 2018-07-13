@@ -6,6 +6,8 @@ import model.IModel;
 
 public interface IController {
 
+
+
 	/**
 	 * Set the model of the controller.
 	 *

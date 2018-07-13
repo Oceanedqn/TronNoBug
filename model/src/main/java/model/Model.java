@@ -24,7 +24,7 @@ public final class Model extends Observable implements IModel {
 
 		// super();
 		this.bikeJ1 = new Bike(40, 40);
-		this.bikeJ2 = new Bike(560, 360);
+		this.bikeJ2 = new Bike(540, 340);
 
 	}
 

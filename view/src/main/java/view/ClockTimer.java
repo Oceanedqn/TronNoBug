@@ -2,18 +2,19 @@ package view;
 
 
 
-public class Clock implements Runnable {
+public class ClockTimer extends Thread implements Runnable {
 
 	private final int PAUSE = 1000;
 	private int countTime;
 	private String str;
 
-	public Clock() {
+	public ClockTimer() {
 		this.countTime = 0;
 		this.str = "Time : 0";
 
 		Thread clock = new Thread(this);
 		clock.start();
+		System.out.println(clock);
 	}
 
 	// GETTERS

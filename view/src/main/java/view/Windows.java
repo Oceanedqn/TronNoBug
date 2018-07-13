@@ -31,7 +31,6 @@ class Windows extends JFrame implements KeyListener, IView {
 	boolean dejaAppuyer = false;
 
 	/** The clock. */
-	// private Clock clock;
 
 	/** The menuu. */
 	private MenuPanel menuu;
@@ -39,10 +38,6 @@ class Windows extends JFrame implements KeyListener, IView {
 	/** The game. */
 	private GamePanel game = new GamePanel();
 	// int timer = 0;
-	
-
-
-
 
 	/**
 	 * Instantiates a new windows.
@@ -60,9 +55,6 @@ class Windows extends JFrame implements KeyListener, IView {
 		this.addKeyListener(this);
 	}
 
-
-
-
 	/*
 	 * Move the bike
 	 * 
@@ -74,18 +66,22 @@ class Windows extends JFrame implements KeyListener, IView {
 
 		case KeyEvent.VK_ENTER:
 			this.controller.orderPerform(Order.ENTER, 3);
-
 			if (!dejaAppuyer) {
 				dejaAppuyer = true;
 				game.update(controller.getModel());
-
 				// this.game.add(clock);
 				this.setContentPane(this.game);
 				this.repaint();
+				// clock.run();
 				SwingUtilities.updateComponentTreeUI(this);
-			} else
-				// System.out.println("deja appuyer mon pote");
+			} else {
 
+			}
+
+			break;
+
+		case KeyEvent.VK_ESCAPE:
+			System.out.println("Pause");
 			break;
 
 		case KeyEvent.VK_Z:
@@ -165,7 +161,6 @@ class Windows extends JFrame implements KeyListener, IView {
 	 * @see view.IView#openWindows()
 	 */
 
-
 	/*
 	 * @see view.IView#closeWindows()
 	 */
@@ -184,15 +179,12 @@ class Windows extends JFrame implements KeyListener, IView {
 
 	}
 
-
-
 	/**
 	 * Sets the clock.
 	 */
 	public void setClock() {
 		// this.clock.setTimer((this.controller.Clock()));
 	}
-
 
 	/**
 	 * Sets the time.
@@ -238,9 +230,6 @@ class Windows extends JFrame implements KeyListener, IView {
 	public IController getController() {
 		return controller;
 	}
-	
-	
-
 
 	/*
 	 * @see view.IView#setController(controller.IController)
@@ -256,7 +245,6 @@ class Windows extends JFrame implements KeyListener, IView {
 	public final void displayMessage(final String message) {
 		JOptionPane.showMessageDialog(null, message);
 	}
-
 
 	@Override
 	public void finalTime() {
