@@ -29,6 +29,8 @@ class GamePanel extends JPanel implements Observer {
 
 	/** The model. */
 	private IModel model;
+	
+	private Clock clock;
 
 	/**
 	 * Constructor.
@@ -71,7 +73,9 @@ class GamePanel extends JPanel implements Observer {
 		g.fillRect(601, 0, 300, 400); // BACKGROUND GRAY
 		g.setColor(Color.WHITE);
 		g.drawString("PARTY INFORMATION ", 620, 50);
-		g.drawString("Timer : ", 625, 70);
+		
+		clock = new Clock();
+		g.drawString(this.clock.getStr(), 625, 70);
 
 		g.setColor(Color.PINK);
 		g.drawString("ORDER PLAYER 1", 620, 100);

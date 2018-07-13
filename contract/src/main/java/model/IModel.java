@@ -2,7 +2,6 @@ package model;
 
 import java.sql.SQLException;
 
-
 /**
  * <h1>The Interface IModel.</h1>
  *
@@ -98,6 +97,14 @@ public interface IModel {
 	 * @return the int
 	 */
 	int positionJ2X();
+
+	public int[][] getTabBlockJ1();
+
+	public int[][] getTabBlockJ2();
+
+	public void setTabBlockJ1(int tabBlockJ1[][]);
+
+	public void setTabBlockJ2(int tabBlockJ2[][]);
 
 	/**
 	 * Message.

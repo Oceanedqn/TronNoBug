@@ -1,7 +1,5 @@
 package view;
 
-import java.util.Observer;
-
 import controller.IController;
 
 public interface IView {
@@ -23,7 +21,7 @@ public interface IView {
 	 * a methode Open the window.
 	 */
 
-	void openWindows();
+	// void openWindows();
 
 	/**
 	 * Close windows.
@@ -40,7 +38,7 @@ public interface IView {
 	 *
 	 * @return An observer
 	 */
-	Observer getObserver();
+	// Observer getObserver();
 
 	/**
 	 * Setter of the controller.

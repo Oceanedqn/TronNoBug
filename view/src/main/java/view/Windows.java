@@ -2,7 +2,6 @@ package view;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.Observer;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -32,13 +31,16 @@ class Windows extends JFrame implements KeyListener, IView {
 	boolean dejaAppuyer = false;
 
 	/** The clock. */
-	private Clock clock;
+	// private Clock clock;
 
 	/** The menuu. */
 	private MenuPanel menuu;
 
 	/** The game. */
 	private GamePanel game = new GamePanel();
+	// int timer = 0;
+	
+
 
 
 
@@ -52,10 +54,7 @@ class Windows extends JFrame implements KeyListener, IView {
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
 		this.setAlwaysOnTop(true);
-
 		this.menuu = new MenuPanel();
-		// this.menuu.setBackground(Color.BLACK);
-
 		this.setContentPane(this.menuu);
 		this.setVisible(true);
 		this.addKeyListener(this);
@@ -63,20 +62,6 @@ class Windows extends JFrame implements KeyListener, IView {
 
 
 
-	/*
-	 * @see view.IView#setController(controller.IController)
-	 */
-	public void setController(IController controller) {
-		this.controller = controller;
-		// this.setController(controller);
-	}
-
-	/*
-	 * @see view.IView#displayMessage(java.lang.String)
-	 */
-	public final void displayMessage(final String message) {
-		JOptionPane.showMessageDialog(null, message);
-	}
 
 	/*
 	 * Move the bike
@@ -93,13 +78,7 @@ class Windows extends JFrame implements KeyListener, IView {
 			if (!dejaAppuyer) {
 				dejaAppuyer = true;
 				game.update(controller.getModel());
-				this.clock = new Clock();
 
-				// clock.setLayout(null);
-				// this.clock.setBounds(600, 50, 80, 20);
-				this.game.add(clock);
-				// clock.setPreferredSize(new Dimension(80, 35));
-				// this.clock.setLocation(400, 70);
 				// this.game.add(clock);
 				this.setContentPane(this.game);
 				this.repaint();
@@ -109,10 +88,6 @@ class Windows extends JFrame implements KeyListener, IView {
 
 			break;
 
-			// case KeyEvent.VK_SPACE:
-			// System.out.println("Space");
-			// this.controller.orderPerform(Order.SPACE, 4);
-			// break;
 		case KeyEvent.VK_Z:
 			// System.out.println("Up");
 			this.controller.orderPerform(Order.UP, 1);
@@ -189,11 +164,7 @@ class Windows extends JFrame implements KeyListener, IView {
 	/*
 	 * @see view.IView#openWindows()
 	 */
-	@Override
-	public void openWindows() {
-		// TODO Auto-generated method stub
 
-	}
 
 	/*
 	 * @see view.IView#closeWindows()
@@ -213,14 +184,7 @@ class Windows extends JFrame implements KeyListener, IView {
 
 	}
 
-	/*
-	 * @see view.IView#getObserver()
-	 */
-	@Override
-	public Observer getObserver() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 	/**
 	 * Sets the clock.
@@ -229,21 +193,10 @@ class Windows extends JFrame implements KeyListener, IView {
 		// this.clock.setTimer((this.controller.Clock()));
 	}
 
-	/*
-	 * @see view.IView#finalTime()
-	 */
-	public void finalTime() {
-		this.setTime();
-
-	}
 
 	/**
 	 * Sets the time.
 	 */
-	private void setTime() {
-		// TODO Auto-generated method stub
-
-	}
 
 	/*
 	 * repaint
@@ -284,6 +237,31 @@ class Windows extends JFrame implements KeyListener, IView {
 	 */
 	public IController getController() {
 		return controller;
+	}
+	
+	
+
+
+	/*
+	 * @see view.IView#setController(controller.IController)
+	 */
+	public void setController(IController controller) {
+		this.controller = controller;
+		// this.setController(controller);
+	}
+
+	/*
+	 * @see view.IView#displayMessage(java.lang.String)
+	 */
+	public final void displayMessage(final String message) {
+		JOptionPane.showMessageDialog(null, message);
+	}
+
+
+	@Override
+	public void finalTime() {
+		// TODO Auto-generated method stub
+
 	}
 
 }

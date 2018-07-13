@@ -1,64 +1,44 @@
 package view;
 
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
-/**
- * The Class Clock.
- */
-public class Clock extends JPanel {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
+public class Clock implements Runnable {
 
-	private int x = 650;
-	private int y = 650;
-	/** The timer. */
-	int timer = 0;
+	private final int PAUSE = 1000;
+	private int countTime;
+	private String str;
 
-	/** The clock. */
-	JLabel clock = new JLabel("Timer : " + timer);
-
-	/**
-	 * Instantiates a new clock.
-	 */
 	public Clock() {
-		clock.setLocation(x, y);
-		this.add(clock);
+		this.countTime = 0;
+		this.str = "Time : 0";
 
+		Thread clock = new Thread(this);
+		clock.start();
+	}
+
+	// GETTERS
+
+	public int getCountTime() {
+		return countTime;
+	}
+
+	public String getStr() {
+		return str;
 	}
 
 
-	/**
-	 * Sets the timer.
-	 *
-	 * @param timer
-	 *            the new timer
-	 */
-	public void setTimer(int timer) {
-		this.timer = timer;
+	public void run() {
+		while (true) {
+			try {
+				Thread.sleep(PAUSE);
+			} catch (InterruptedException e) {
 
-		this.clock.setText("Timer : " + timer);
-	}
+			}
 
+			this.countTime++;
+			this.str = "Time + " + this.countTime;
+		}
 
-	public int getClockX() {
-		return x;
-	}
-
-
-	public void setClockX(int x) {
-		this.x = x;
-	}
-
-
-	public int getClockY() {
-		return y;
-	}
-
-
-	public void setClockY(int y) {
-		this.y = y;
 	}
 
 }

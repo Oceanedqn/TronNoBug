@@ -203,6 +203,8 @@ public class Controller implements IController {
 			switch (order) {
 			case UP:
 				this.getModel().setBikeJ1Y(this.getModel().positionJ1Y() - 20);
+				// this.getModel().setTabBlock(this.getModel().)
+				;
 				break;
 			case DOWN:
 				this.getModel().setBikeJ1Y(this.getModel().positionJ1Y() + 20);
