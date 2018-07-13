@@ -11,6 +11,8 @@ public final class Model extends Observable implements IModel {
 	/** The bike J 2. */
 	private Bike bikeJ2;
 
+	private int tabBlock[][] = new int[600][400];
+
 	/**
 	 * Instantiates a new model facade.
 	 */
@@ -40,7 +42,9 @@ public final class Model extends Observable implements IModel {
 	 * @see model.IModel#setBikeJ1X(int)
 	 */
 	public void setBikeJ1X(int x) {
+
 		this.bikeJ1.setX(x);
+
 	}
 
 	/*
@@ -114,6 +118,14 @@ public final class Model extends Observable implements IModel {
 		System.out.println("ouverture bdd");
 		connector.sauverEnBase(player, time);
 
+	}
+
+	public int[][] getTabBlock() {
+		return tabBlock;
+	}
+
+	public void setTabBlock(int tabBlock[][]) {
+		this.tabBlock = tabBlock;
 	}
 
 }

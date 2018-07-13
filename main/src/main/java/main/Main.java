@@ -21,19 +21,9 @@ public abstract class Main {
 	 *
 	 * @param args
 	 *            the arguments
-	 * @throws SQLException
-	 *             the SQL exception
+	 * @throwsss SQLException the SQL exception
 	 */
 	public static void main(final String[] args) throws SQLException {
-		try {
-			// The newInstance() call is a work around for some
-			// broken Java implementations
-
-			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-		} catch (Exception ex) {
-			// handle the error
-		}
-
 		final Model model = new Model();
 		final View view = new View();
 

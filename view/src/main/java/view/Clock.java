@@ -11,6 +11,8 @@ public class Clock extends JPanel {
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
+	private int x = 650;
+	private int y = 650;
 	/** The timer. */
 	int timer = 0;
 
@@ -21,7 +23,9 @@ public class Clock extends JPanel {
 	 * Instantiates a new clock.
 	 */
 	public Clock() {
+		clock.setLocation(x, y);
 		this.add(clock);
+
 	}
 
 
@@ -33,7 +37,28 @@ public class Clock extends JPanel {
 	 */
 	public void setTimer(int timer) {
 		this.timer = timer;
+
 		this.clock.setText("Timer : " + timer);
+	}
+
+
+	public int getClockX() {
+		return x;
+	}
+
+
+	public void setClockX(int x) {
+		this.x = x;
+	}
+
+
+	public int getClockY() {
+		return y;
+	}
+
+
+	public void setClockY(int y) {
+		this.y = y;
 	}
 
 }

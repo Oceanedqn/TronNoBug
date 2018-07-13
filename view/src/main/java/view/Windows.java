@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Observer;
@@ -55,55 +54,14 @@ class Windows extends JFrame implements KeyListener, IView {
 		this.setAlwaysOnTop(true);
 
 		this.menuu = new MenuPanel();
-		this.menuu.setBackground(Color.BLACK);
+		// this.menuu.setBackground(Color.BLACK);
 
 		this.setContentPane(this.menuu);
 		this.setVisible(true);
 		this.addKeyListener(this);
 	}
 
-	/*
-	 * repaint
-	 * 
-	 * @see java.awt.Component#repaint()
-	 */
-	@Override
-	public void repaint() {
-		this.menuu.repaint();
-	}
 
-	/**
-	 * Gets the menuu.
-	 *
-	 * @return the menuu
-	 */
-	/*
-	 * public MenuPanel getMenuu() { return this.menuu; }
-	 */
-
-	public MenuPanel getMenuPanel() {
-		return this.menuu;
-	}
-
-	/**
-	 * Gets the game panel.
-	 *
-	 * @return the game panel
-	 */
-	public GamePanel getGamePanel() {
-		return this.game;
-	}
-
-
-
-	/**
-	 * Gets the controller.
-	 *
-	 * @return the controller
-	 */
-	public IController getController() {
-		return controller;
-	}
 
 	/*
 	 * @see view.IView#setController(controller.IController)
@@ -136,8 +94,13 @@ class Windows extends JFrame implements KeyListener, IView {
 				dejaAppuyer = true;
 				game.update(controller.getModel());
 				this.clock = new Clock();
-				this.clock.setLocation(800, 70);
+
+				// clock.setLayout(null);
+				// this.clock.setBounds(600, 50, 80, 20);
 				this.game.add(clock);
+				// clock.setPreferredSize(new Dimension(80, 35));
+				// this.clock.setLocation(400, 70);
+				// this.game.add(clock);
 				this.setContentPane(this.game);
 				this.repaint();
 				SwingUtilities.updateComponentTreeUI(this);
@@ -146,10 +109,10 @@ class Windows extends JFrame implements KeyListener, IView {
 
 			break;
 
-		case KeyEvent.VK_SPACE:
+			// case KeyEvent.VK_SPACE:
 			// System.out.println("Space");
-			this.controller.orderPerform(Order.SPACE, 4);
-			break;
+			// this.controller.orderPerform(Order.SPACE, 4);
+			// break;
 		case KeyEvent.VK_Z:
 			// System.out.println("Up");
 			this.controller.orderPerform(Order.UP, 1);
@@ -244,7 +207,7 @@ class Windows extends JFrame implements KeyListener, IView {
 	/*
 	 * @see view.IView#position()
 	 */
-	@Override
+
 	public void position() {
 		this.position();
 
@@ -263,7 +226,7 @@ class Windows extends JFrame implements KeyListener, IView {
 	 * Sets the clock.
 	 */
 	public void setClock() {
-		this.clock.setTimer((this.controller.Clock()));
+		// this.clock.setTimer((this.controller.Clock()));
 	}
 
 	/*
@@ -280,6 +243,47 @@ class Windows extends JFrame implements KeyListener, IView {
 	private void setTime() {
 		// TODO Auto-generated method stub
 
+	}
+
+	/*
+	 * repaint
+	 * 
+	 * @see java.awt.Component#repaint()
+	 */
+	@Override
+	public void repaint() {
+		this.menuu.repaint();
+	}
+
+	/**
+	 * Gets the menuu.
+	 *
+	 * @return the menuu
+	 */
+	/*
+	 * public MenuPanel getMenuu() { return this.menuu; }
+	 */
+
+	public MenuPanel getMenuPanel() {
+		return this.menuu;
+	}
+
+	/**
+	 * Gets the game panel.
+	 *
+	 * @return the game panel
+	 */
+	public GamePanel getGamePanel() {
+		return this.game;
+	}
+
+	/**
+	 * Gets the controller.
+	 *
+	 * @return the controller
+	 */
+	public IController getController() {
+		return controller;
 	}
 
 }

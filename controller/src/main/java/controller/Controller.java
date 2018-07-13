@@ -15,7 +15,7 @@ public class Controller implements IController {
 	private IModel model;
 
 	/** The Clock of the game. */
-	private Clock clock;
+	// private Clock clock;
 
 	/** The in game. */
 	private boolean inGame = false;
@@ -51,9 +51,9 @@ public class Controller implements IController {
 	 */
 
 	public void start() throws SQLException {
-		// this.model.getObservable().addObserver(this.view.getObserver());
-		this.clock = new Clock(this);
-		this.clock.start();
+		// this.model.getObservable().addObserver(this.view.getObserver());;
+
+
 
 		// System.out.println("Start");
 		// this.getView().displayMessage(this.getModel().getExampleById(1).toString());
@@ -228,6 +228,7 @@ public class Controller implements IController {
 				// end("PLAYER TWO WIN");
 				end();
 				javax.swing.JOptionPane.showMessageDialog(null, "J2 WIN");
+				System.exit(0);
 				// this.view.finalTime();
 			}
 		}
@@ -260,11 +261,13 @@ public class Controller implements IController {
 				// end("PLAYER ONE WIN");
 				end();
 				javax.swing.JOptionPane.showMessageDialog(null, "J1 WIN");
+				System.exit(0);
 				// this.view.finalTime();
 			}
 		}
 
 	}
+
 
 	/**
 	 * Collision on.
@@ -312,12 +315,12 @@ public class Controller implements IController {
 	 *            the message
 	 */
 
+
 	public void end() {
 		this.getView().closeWindows();
-		this.Clock();
 		// System.out.println(Clock());
-		clock.stopClock();
-		// System.exit(0);
+		// clock.stop();
+
 
 	}
 
@@ -357,12 +360,6 @@ public class Controller implements IController {
 		this.view = view;
 	}
 
-	/*
-	 * @see controller.IController#Clock()
-	 */
-	public int Clock() {
-		return this.clock.getTickNumber();
 
-	}
 
 }

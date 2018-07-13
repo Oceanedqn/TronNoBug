@@ -67,17 +67,16 @@ public class MenuPanel extends JPanel implements Observer {
 			e.printStackTrace();
 		}
 
+	}
 		// FAIRE UN TRUC POUR LE FAIRE CHANGER DE COULEUR
 
-		try {
-			final Image img = ImageIO
-					.read(new File("D:\\Document\\Java\\Utiliser\\tron\\Tron\\lorann\\pictures\\TronBleu.png"));
-			g.drawImage(img, 320, 50, this);
-			// System.out.println("On met l'image en rouge");
-		} catch (final IOException e) {
-			e.printStackTrace();
-		}
-	}
+	/*
+	 * try { final Image img = ImageIO .read(new File(
+	 * "D:\\Document\\Java\\Utiliser\\tron\\Tron\\lorann\\pictures\\TronBleu.png"));
+	 * g.drawImage(img, 320, 50, this); //
+	 * System.out.println("On met l'image en rouge"); } catch (final IOException e)
+	 * { e.printStackTrace(); } }
+	 */
 
 	/*
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)

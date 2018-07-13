@@ -39,11 +39,6 @@ public interface IController {
 	 */
 	public IModel getModel();
 
-	/**
-	 * Clock.
-	 *
-	 * @return the int
-	 */
-	public int Clock();
+
 
 }
