@@ -9,6 +9,10 @@ public class View implements IView {
 	/** The win. */
 	private Windows win;
 
+	private Chrono chrono;
+
+
+
 	// private IModel model;
 
 	/**
@@ -19,11 +23,16 @@ public class View implements IView {
 
 	}
 
+
 	/*
 	 * @see view.IView#repaint()
 	 */
 	public void repaint() {
 
+	}
+
+	public String getChrono() {
+		return this.chrono.getStr();
 	}
 
 	/*
@@ -48,6 +57,10 @@ public class View implements IView {
 	}
 
 	/*
+	 * public int getPatate() { return chrono.getCompteursTemps(); }
+	 */
+
+	/*
 	 * @see view.IView#setController(controller.IController)
 	 */
 	public void setController(IController controller) {
@@ -70,12 +83,6 @@ public class View implements IView {
 
 	}
 
-	/*
-	 * @see view.IView#finalTime()
-	 */
-	@Override
-	public void finalTime() {
 
-	}
 
 }

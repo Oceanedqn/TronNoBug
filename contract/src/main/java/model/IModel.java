@@ -98,13 +98,25 @@ public interface IModel {
 	 */
 	int positionJ2X();
 
-	public int[][] getTabBlockJ1();
+	// public int[][] getTabBlock();
 
-	public int[][] getTabBlockJ2();
+	// public void setTabBlock(int tabBlock[][]);
 
-	public void setTabBlockJ1(int tabBlockJ1[][]);
+	public int getBlockNumber();
 
-	public void setTabBlockJ2(int tabBlockJ2[][]);
+	public void setBlockNumber(int numberBlock);
+
+	public int getBlockNumberJ1();
+
+	public void setBlockNumberJ1(int numberBlockJ1);
+
+	public int getBlockNumberJ2();
+
+	public void setBlockNumberJ2(int numberBlockJ2);
+
+	// public int getTabBlockX(int bn);
+
+	// public int getTabBlockY(int bn);
 
 	/**
 	 * Message.

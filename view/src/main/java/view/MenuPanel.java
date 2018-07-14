@@ -68,7 +68,7 @@ public class MenuPanel extends JPanel implements Observer {
 		}
 
 	}
-		// FAIRE UN TRUC POUR LE FAIRE CHANGER DE COULEUR
+	// FAIRE UN TRUC POUR LE FAIRE CHANGER DE COULEUR
 
 	/*
 	 * try { final Image img = ImageIO .read(new File(

@@ -14,7 +14,7 @@ public class Controller implements IController {
 	/** The model. */
 	private IModel model;
 
-
+	// int time = view.getChrono().getTime()
 
 	/** The in game. */
 	private boolean inGame = false;
@@ -24,6 +24,8 @@ public class Controller implements IController {
 
 	/** The last key code J 1. */
 	private Order lastKeyCodeJ1;
+
+	private int tabMap[][] = new int[30][20];
 
 	/**
 	 * Instantiates a new controller facade.
@@ -49,10 +51,12 @@ public class Controller implements IController {
 	 *             the SQL exception
 	 */
 
-	public void start() throws SQLException {
+	public void start() {
 		// this.model.getObservable().addObserver(this.view.getObserver());;
 
-		// clock.run();
+		// this.clock = new Clock(this);
+		// this.clock.start();
+		System.out.println("Start");
 
 		// System.out.println("Start");
 		// this.getView().displayMessage(this.getModel().getExampleById(1).toString());
@@ -68,8 +72,6 @@ public class Controller implements IController {
 		// }
 		// this.getView().displayMessage(message.toString());
 	}
-
-
 
 	/*
 	 * @see controller.IController#orderPerform(controller.Order, int) method to
@@ -138,78 +140,108 @@ public class Controller implements IController {
 	 *            the keycode
 	 */
 	public void ActionPerform(Order order, int keycode) {
+
 		if (keycode == 1) {
+
+			tabMap[this.getModel().getBikeJ1X() / 20][this.getModel().getBikeJ1Y() / 20] = 1;
 			switch (order) {
 
-			case PAUSE:
-				break;
 			case UP:
 				this.getModel().setBikeJ1Y(this.getModel().positionJ1Y() - 20);
-				// this.getModel().setTabBlock(this.getModel().)
 
 				break;
 			case DOWN:
+
 				this.getModel().setBikeJ1Y(this.getModel().positionJ1Y() + 20);
+
 				break;
 			case ENTER:
 				break;
 			case LEFT:
 				this.getModel().setBikeJ1X(this.getModel().positionJ1X() - 20);
+
 				break;
 			case RIGHT:
 				this.getModel().setBikeJ1X(this.getModel().positionJ1X() + 20);
-				break;
-			case SPACE:
+
 				break;
 			default:
 				break;
 			}
 
-			if (!collisionOn(this.getModel().getBikeJ1X(), this.getModel().getBikeJ1Y(), this.getModel().getBikeJ2X(),
-					this.getModel().getBikeJ2Y())) {
-				// end("PLAYER TWO WIN");
-				end();
-				javax.swing.JOptionPane.showMessageDialog(null, "J2 WIN");
-				System.exit(0);
-				// this.view.finalTime();
+			if (this.getModel().getBikeJ1X() / 20 > 29 || this.getModel().getBikeJ1Y() / 20 > 19
+					|| (this.getModel().getBikeJ1X() / 20 < 0 || this.getModel().getBikeJ1Y() / 20 < 0)) {
+				System.out.println("Mort : Collision hors map");
+				endJ1();
+				;
+
+			} else if (tabMap[this.getModel().getBikeJ1X() / 20][this.getModel().getBikeJ1Y() / 20] == 1) {
+				System.out.println("Mort : Collision avec un mur");
+				endJ1();
 			}
+
 		}
 		if (keycode == 2) {
+
+			tabMap[this.getModel().getBikeJ2X() / 20][this.getModel().getBikeJ2Y() / 20] = 1;
 			switch (order) {
 			case UP:
 				this.getModel().setBikeJ2Y(this.getModel().positionJ2Y() - 20);
+
 				break;
 			case DOWN:
 				this.getModel().setBikeJ2Y(this.getModel().positionJ2Y() + 20);
+
 				break;
 			case ENTER:
 				break;
 			case LEFT:
 				this.getModel().setBikeJ2X(this.getModel().positionJ2X() - 20);
-				break;
-			case PAUSE:
+
 				break;
 			case RIGHT:
 				this.getModel().setBikeJ2X(this.getModel().positionJ2X() + 20);
-				break;
-			case SPACE:
+
 				break;
 			default:
 				break;
+
 			}
 
-			if (!collisionOn(this.getModel().getBikeJ2X(), this.getModel().getBikeJ2Y(), this.getModel().getBikeJ1X(),
-					this.getModel().getBikeJ1Y())) {
-				// end("PLAYER ONE WIN");
-				end();
-				javax.swing.JOptionPane.showMessageDialog(null, "J1 WIN");
-				System.exit(0);
-				// this.view.finalTime();
+			if (this.getModel().getBikeJ2X() / 20 > 29 || this.getModel().getBikeJ2Y() / 20 > 19
+					|| (this.getModel().getBikeJ2X() / 20 < 0 || this.getModel().getBikeJ2Y() / 20 < 0)) {
+				System.out.println("Mort : Collision hors map");
+				endJ2();
+			} else if (tabMap[this.getModel().getBikeJ2X() / 20][this.getModel().getBikeJ2Y() / 20] == 1) {
+				System.out.println("Mort : Collision avec un mur");
+				endJ2();
 			}
 		}
+	}
+
+	public void endJ1() {
+
+		this.getView().closeWindows();
+		javax.swing.JOptionPane.showMessageDialog(null, "J2 WIN" /* + this.getView().getPatate() */);
+		System.exit(0);
 
 	}
 
+	public void endJ2() {
+
+		// System.out.println(this.getView().getPatate());
+		this.getView().closeWindows();
+		javax.swing.JOptionPane.showMessageDialog(null, "J1 WIN" /* + this.getView().getPatate() */);
+		System.exit(0);
+
+	}
+	/*
+	 * if (!collisionOn(this.getModel().getBikeJ2X() / 20,
+	 * this.getModel().getBikeJ2Y() / 20, this.getModel().getBikeJ1X() / 20,
+	 * this.getModel().getBikeJ1Y() / 20)) { // end("PLAYER ONE WIN"); end();
+	 * javax.swing.JOptionPane.showMessageDialog(null, "J1 WIN"); System.exit(0); //
+	 * this.view.finalTime(); }
+	 */
 
 	/**
 	 * Collision on.
@@ -229,11 +261,11 @@ public class Controller implements IController {
 	 */
 	public boolean collisionOn(int x, int y, int xx, int yy) {
 		int validate = 1;
-		if (x > 580 || x < 0) {
+		if (x > 30 || x < 0) {
 			validate = 0;
 		}
 
-		if (y > 380 || y < 0) {
+		if (y > 20 || y < 0) {
 			validate = 0;
 		}
 
@@ -257,13 +289,14 @@ public class Controller implements IController {
 	 *            the message
 	 */
 
-
 	public void end() {
 		this.getView().closeWindows();
+
+		// this.clock.stop();
+		// System.out.println(chrono.getDureeSec());
+
 		// System.out.println(Clock());
 		// clock.stop();
-
-
 	}
 
 	/**
@@ -301,8 +334,6 @@ public class Controller implements IController {
 	public void setView(IView view) {
 		this.view = view;
 	}
-
-
 
 	/**
 	 * Move bike J 1 X.

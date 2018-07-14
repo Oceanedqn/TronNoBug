@@ -11,11 +11,11 @@ public final class Model extends Observable implements IModel {
 	/** The bike J 2. */
 	private Bike bikeJ2;
 
-	private int tabBlockJ1[][] = new int[600][400];
-	private int tabBlockJ2[][] = new int[600][400];
+	// private int tabBlock[][] = new int[30][20];
 
 	private int blockNumberJ1 = 0;
 	private int blockNumberJ2 = 0;
+	private int blockNumber = 0;
 
 	/**
 	 * Instantiates a new model facade.
@@ -47,8 +47,10 @@ public final class Model extends Observable implements IModel {
 	 */
 	public void setBikeJ1X(int x) {
 
-		tabBlockJ1[blockNumberJ1][0] = this.bikeJ1.getX();
+		// tabBlock[blockNumberJ1][0] = this.bikeJ1.getX();
+		// tabBlock[blockNumberJ1][1] = this.bikeJ1.getY();
 		this.bikeJ1.setX(x);
+		this.blockNumber++;
 		this.blockNumberJ1++;
 		System.out.println(blockNumberJ1);
 
@@ -58,8 +60,10 @@ public final class Model extends Observable implements IModel {
 	 * @see model.IModel#setBikeJ1Y(int)
 	 */
 	public void setBikeJ1Y(int y) {
-		tabBlockJ1[blockNumberJ1][1] = this.bikeJ1.getY();
+		// tabBlock[blockNumberJ1][0] = this.bikeJ1.getX();
+		// tabBlock[blockNumberJ1][1] = this.bikeJ1.getY();
 		this.bikeJ1.setY(y);
+		this.blockNumber++;
 		this.blockNumberJ1++;
 		System.out.println(blockNumberJ1);
 	}
@@ -82,8 +86,10 @@ public final class Model extends Observable implements IModel {
 	 * @see model.IModel#setBikeJ2X(int)
 	 */
 	public void setBikeJ2X(int x) {
-		tabBlockJ2[blockNumberJ2][0] = this.bikeJ1.getY();
+		// tabBlock[blockNumberJ2][0] = this.bikeJ1.getX();
+		// tabBlock[blockNumberJ2][1] = this.bikeJ2.getY();
 		this.bikeJ2.setX(x);
+		this.blockNumber++;
 		this.blockNumberJ2++;
 		System.out.println(blockNumberJ2);
 	}
@@ -92,10 +98,13 @@ public final class Model extends Observable implements IModel {
 	 * @see model.IModel#setBikeJ2Y(int)
 	 */
 	public void setBikeJ2Y(int y) {
-		tabBlockJ2[blockNumberJ2][1] = this.bikeJ2.getY();
+		// tabBlock[blockNumberJ2][0] = this.bikeJ1.getX();
+		// tabBlock[blockNumberJ2][1] = this.bikeJ2.getY();
 		this.bikeJ2.setY(y);
+		this.blockNumber++;
 		this.blockNumberJ2++;
 		System.out.println(blockNumberJ2);
+
 	}
 
 	/*
@@ -136,21 +145,40 @@ public final class Model extends Observable implements IModel {
 
 	}
 
-	public int[][] getTabBlockJ1() {
-		return tabBlockJ1;
+	/*
+	 * public int[][] getTabBlock() { return tabBlock; }
+	 * 
+	 * public void setTabBlock(int tabBlock[][]) { this.tabBlock = tabBlock; }
+	 */
+
+	public int getBlockNumber() {
+		return blockNumber;
 	}
 
-	public int[][] getTabBlockJ2() {
-		return tabBlockJ2;
+	public void setBlockNumber(int numberBlock) {
+		this.blockNumber = numberBlock;
 	}
 
-	public void setTabBlockJ1(int tabBlockJ1[][]) {
-		this.tabBlockJ1 = tabBlockJ1;
+	public int getBlockNumberJ1() {
+		return blockNumberJ1;
 	}
 
-	public void setTabBlockJ2(int tabBlockJ2[][]) {
-		this.tabBlockJ2 = tabBlockJ2;
+	public void setBlockNumberJ1(int numberBlockJ1) {
+		this.blockNumberJ1 = numberBlockJ1;
 	}
 
+	public int getBlockNumberJ2() {
+		return blockNumberJ2;
+	}
+
+	public void setBlockNumberJ2(int numberBlockJ2) {
+		this.blockNumberJ2 = numberBlockJ2;
+	}
+
+	/*
+	 * public int getTabBlockX(int bn) { return tabBlock[bn][0]; }
+	 * 
+	 * public int getTabBlockY(int bn) { return tabBlock[bn][1]; }
+	 */
 
 }

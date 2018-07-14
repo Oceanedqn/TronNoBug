@@ -10,7 +10,7 @@ import model.IModel;
 /**
  * The Class GamePanel.
  */
-class GamePanel extends JPanel implements Observer {
+class GamePanel extends JPanel {
 
 	/** The J 1 x. */
 	private int J1x;
@@ -24,19 +24,27 @@ class GamePanel extends JPanel implements Observer {
 	/** The J 2 y. */
 	private int J2y;
 
+	private String patate;
+
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -6371690572651419043L;
 
 	/** The model. */
 	private IModel model;
-	
-	private ClockTimer clock;
+
+	private Chrono chrono;
 
 	/**
 	 * Constructor.
 	 */
 	public GamePanel() {
+		// clock = new ClockTimer();
 		this.setVisible(true);
+		chrono = new Chrono();
+
+		Thread chronoEcran = new Thread(new Chrono());
+		chronoEcran.start();
+
 	}
 
 	/**
@@ -46,7 +54,6 @@ class GamePanel extends JPanel implements Observer {
 	 *            the g
 	 */
 
-	@Override
 	public void paintComponent(final Graphics g) {
 
 		// ############################################################################
@@ -73,9 +80,6 @@ class GamePanel extends JPanel implements Observer {
 		g.fillRect(601, 0, 300, 400); // BACKGROUND GRAY
 		g.setColor(Color.WHITE);
 		g.drawString("PARTY INFORMATION ", 620, 50);
-		
-		clock = new ClockTimer();
-		g.drawString(this.clock.getStr(), 625, 70);
 
 		g.setColor(Color.PINK);
 		g.drawString("ORDER PLAYER 1", 620, 100);
@@ -108,6 +112,14 @@ class GamePanel extends JPanel implements Observer {
 		blockJ2.setLocation(this.J2x, this.J2y);
 		this.add(blockJ2);
 
+		// ############################################################################
+		// ################################## Timer ###################################
+		// ############################################################################
+
+		g.setColor(Color.WHITE);
+		g.drawString("Timer :", 625, 70);
+		g.drawString(this.chrono.getStr(), 665, 70);
+		setPatate(this.chrono.getStr());
 	}
 
 	/**
@@ -122,6 +134,7 @@ class GamePanel extends JPanel implements Observer {
 		setJ1y(model.getBikeJ1Y());
 		setJ2x(model.getBikeJ2X());
 		setJ2y(model.getBikeJ2Y());
+
 		this.repaint();
 
 	}
@@ -190,10 +203,14 @@ class GamePanel extends JPanel implements Observer {
 	 * 
 	 * @see view.Observer#update()
 	 */
-	@Override
-	public void update() {
-		// TODO Auto-generated method stub
 
+
+	public String getPatate() {
+		return patate;
+	}
+
+	public void setPatate(String patate) {
+		this.patate = patate;
 	}
 
 }

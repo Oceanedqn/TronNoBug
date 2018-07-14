@@ -12,6 +12,7 @@ public interface IView {
 	 */
 	void displayMessage(String message);
 
+
 	/**
 	 * a method update what the user see on screen.
 	 */
@@ -40,6 +41,7 @@ public interface IView {
 	 */
 	// Observer getObserver();
 
+
 	/**
 	 * Setter of the controller.
 	 *
@@ -47,10 +49,5 @@ public interface IView {
 	 *            Set the controller of the view
 	 */
 	void setController(IController controller);
-
-	/**
-	 * Final time.
-	 */
-	void finalTime();
 
 }

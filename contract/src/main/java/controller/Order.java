@@ -19,6 +19,5 @@ public enum Order {
 	ENTER,
 	/** The pause. */
 	PAUSE,
-	/** The space. */
-	SPACE,
+
 }

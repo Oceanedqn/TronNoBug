@@ -37,7 +37,14 @@ class Windows extends JFrame implements KeyListener, IView {
 
 	/** The game. */
 	private GamePanel game = new GamePanel();
+
+	private Chrono chrono;
+
 	// int timer = 0;
+
+	// private Chrono chrono = new Chrono();
+
+	// private ClockTimer clock = new ClockTimer();
 
 	/**
 	 * Instantiates a new windows.
@@ -53,6 +60,7 @@ class Windows extends JFrame implements KeyListener, IView {
 		this.setContentPane(this.menuu);
 		this.setVisible(true);
 		this.addKeyListener(this);
+
 	}
 
 	/*
@@ -68,11 +76,16 @@ class Windows extends JFrame implements KeyListener, IView {
 			this.controller.orderPerform(Order.ENTER, 3);
 			if (!dejaAppuyer) {
 				dejaAppuyer = true;
-				game.update(controller.getModel());
-				// this.game.add(clock);
+
+				this.setLocationRelativeTo(null);
+				this.setLayout(null);
+				this.game = new GamePanel();
+				this.setChrono(new Chrono());
+				Thread chronoEcran = new Thread(new Chrono());
+				chronoEcran.start();
 				this.setContentPane(this.game);
+				game.update(controller.getModel());
 				this.repaint();
-				// clock.run();
 				SwingUtilities.updateComponentTreeUI(this);
 			} else {
 
@@ -81,13 +94,14 @@ class Windows extends JFrame implements KeyListener, IView {
 			break;
 
 		case KeyEvent.VK_ESCAPE:
-			System.out.println("Pause");
+			System.exit(0);
 			break;
 
 		case KeyEvent.VK_Z:
 			// System.out.println("Up");
 			this.controller.orderPerform(Order.UP, 1);
 			this.getGamePanel().setJ1y(controller.getModel().getBikeJ1Y());
+
 			this.getGamePanel().repaint();
 			break;
 		case KeyEvent.VK_Q:
@@ -246,10 +260,15 @@ class Windows extends JFrame implements KeyListener, IView {
 		JOptionPane.showMessageDialog(null, message);
 	}
 
-	@Override
-	public void finalTime() {
-		// TODO Auto-generated method stub
-
+	public Chrono getChrono() {
+		return (Chrono) chrono;
 	}
+
+	public void setChrono(Chrono chrono2) {
+		this.chrono = chrono2;
+	}
+
+
+
 
 }
