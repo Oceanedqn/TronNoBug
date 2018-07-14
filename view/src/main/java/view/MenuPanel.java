@@ -32,6 +32,7 @@ public class MenuPanel extends JPanel implements Observer {
 		setVisible(true);
 	}
 
+	
 	/**
 	 * Method for draw the menu.
 	 *
@@ -60,12 +61,15 @@ public class MenuPanel extends JPanel implements Observer {
 		 */
 		try {
 			final Image img = ImageIO
-					.read(new File("D:\\Document\\Java\\Utiliser\\tron\\Tron\\lorann\\pictures\\TronRose.png"));
+					.read(new File("D:\\Document\\Java\\Utiliser\\tron\\Tron\\lorann\\pictures\\TronViolet.png"));
 			g.drawImage(img, 320, 50, this);
 			// System.out.println("On met l'image en bleu");
 		} catch (final IOException e) {
 			e.printStackTrace();
 		}
+		
+		
+
 
 	}
 	// FAIRE UN TRUC POUR LE FAIRE CHANGER DE COULEUR

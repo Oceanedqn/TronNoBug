@@ -28,7 +28,7 @@ class Windows extends JFrame implements KeyListener, IView {
 	private IController controller;
 
 	/** The deja appuyer. */
-	boolean dejaAppuyer = false;
+	boolean alreadyUsed = false;
 
 	/** The clock. */
 
@@ -74,8 +74,8 @@ class Windows extends JFrame implements KeyListener, IView {
 
 		case KeyEvent.VK_ENTER:
 			this.controller.orderPerform(Order.ENTER, 3);
-			if (!dejaAppuyer) {
-				dejaAppuyer = true;
+			if (!alreadyUsed) {
+				alreadyUsed = true;
 
 				this.setLocationRelativeTo(null);
 				this.setLayout(null);
@@ -268,6 +268,11 @@ class Windows extends JFrame implements KeyListener, IView {
 		this.chrono = chrono2;
 	}
 
+	@Override
+	public int getPatate() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 
 

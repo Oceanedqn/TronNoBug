@@ -119,7 +119,7 @@ class GamePanel extends JPanel {
 		g.setColor(Color.WHITE);
 		g.drawString("Timer :", 625, 70);
 		g.drawString(this.chrono.getStr(), 665, 70);
-		setPatate(this.chrono.getStr());
+
 	}
 
 	/**
@@ -197,6 +197,7 @@ class GamePanel extends JPanel {
 	public void setJ2y(int J2y) {
 		this.J2y = J2y;
 	}
+
 
 	/*
 	 * (non-Javadoc)

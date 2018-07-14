@@ -18,6 +18,7 @@ public interface IView {
 	 */
 	void repaint();
 
+	public int getPatate();
 	/**
 	 * a methode Open the window.
 	 */

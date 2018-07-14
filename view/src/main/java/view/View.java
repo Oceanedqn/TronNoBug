@@ -56,9 +56,11 @@ public class View implements IView {
 		return (Observer) this.win.getGamePanel();
 	}
 
-	/*
-	 * public int getPatate() { return chrono.getCompteursTemps(); }
-	 */
+	public int getPatate() {
+		// System.out.println(chrono.getCompteursTemps());
+		return chrono.getCompteursTemps();
+
+	}
 
 	/*
 	 * @see view.IView#setController(controller.IController)
