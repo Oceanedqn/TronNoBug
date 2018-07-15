@@ -57,9 +57,35 @@ public class MenuPanel extends JPanel implements Observer {
 		 * Write a text gray
 		 */
 		g.setColor(Color.GRAY);
+
+		g.drawString("BIENVENUE DANS L'ÉDITION SPÉCIAL TRON MODE CACHÉ", 268, 20);
+
+		g.drawString(" * Si tu veux connaître l'avancé du TEMPS de partie,", 110, 250);
+		g.drawString("   n'oublies pas de bouger", 115, 265);
+
+		g.drawString(" * Essaye de faire le MOINS de mouvement possible", 110, 285);
+		g.drawString("   pour battre le record !", 115, 300);
+
+		g.drawString(" * Ne te cogne pas dans les MURS ! ", 110, 320);
+		g.drawString("   (On doit être maitre de son vehicule !)", 115, 335);
+
+		g.drawString(" * Les MOTOS ne sont pas des murs ! ", 110, 355);
+
+		g.drawString(" * N : Nouveau MENU", 480, 250);
+
+		g.drawString(" * P : Sauvegarde du score dans la BDD", 480, 285);
+		g.drawString(" * P : Affichage du score de fin dans la popup final ", 480, 300);
+
+		g.drawLine(440, 210, 440, 370);
+
 		final Font fonte = new Font("Zapfino", Font.BOLD, 15);
 		g.setFont(fonte);
-		g.drawString("Press ENTER for start the game", 325, 250);
+
+		g.drawString("Quelques infos et astuces avant de débuter", 100, 225);
+		g.drawString("Nouveautés et Prochainement", 470, 225);
+
+		g.setColor(Color.MAGENTA);
+		g.drawString("Press ENTER for start the game", 325, 190);
 
 		/**
 		 * Insert a picture for the background
