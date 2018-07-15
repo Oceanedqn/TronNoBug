@@ -52,7 +52,6 @@ public class ModelTest {
 		model = new Model();
 	}
 
-
 	/**
 	 * Test get bike J 1 Y.
 	 */
@@ -169,7 +168,6 @@ public class ModelTest {
 		testBikeJ2 = model.positionJ2Y();
 		assertEquals(testBikeJ2, this.bikeJ2.positionY());
 	}
-
 
 	/**
 	 * Test get block number.

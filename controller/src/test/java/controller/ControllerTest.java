@@ -1,16 +1,26 @@
+/*
+ *  Océane Duquenne
+ * Join : oceane.duquenne@viacesi.fr
+ * 
+ * Version 1.0
+ */
 package controller;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
+/**
+ * The Class ControllerTest.
+ */
 public class ControllerTest {
 
-
-
+	/** The test num player. */
 	int testNumPlayer = 3;
 
+	/**
+	 * Test order perform.
+	 */
 	@Test
 	public void testOrderPerform() {
 
@@ -40,6 +50,9 @@ public class ControllerTest {
 
 	}
 
+	/**
+	 * Test action perform.
+	 */
 	@Test
 	public void testActionPerform() {
 		if (testNumPlayer == 3) {
@@ -65,41 +78,6 @@ public class ControllerTest {
 
 			assertEquals(testNumPlayer, numPlayer);
 		}
-	}
-
-	@Test
-	public void testEndJ1() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testEndJ2() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testUpdate() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testMoveBikeJ1X() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testMoveBikeJ1Y() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testMoveBikeJ2X() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testMoveBikeJ2Y() {
-		fail("Not yet implemented");
 	}
 
 }

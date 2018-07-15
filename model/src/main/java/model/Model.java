@@ -46,7 +46,6 @@ public final class Model extends Observable implements IModel {
 
 	}
 
-
 	/*
 	 * @see model.IModel#getBikeJ1X()
 	 */
@@ -54,14 +53,12 @@ public final class Model extends Observable implements IModel {
 		return bikeJ1.getX();
 	}
 
-
 	/*
 	 * @see model.IModel#getBikeJ1Y()
 	 */
 	public int getBikeJ1Y() {
 		return bikeJ1.getY();
 	}
-
 
 	/*
 	 * @see model.IModel#setBikeJ1X(int)
@@ -89,7 +86,6 @@ public final class Model extends Observable implements IModel {
 		System.out.println(blockNumberJ1);
 	}
 
-
 	/*
 	 * @see model.IModel#getBikeJ2X()
 	 */
@@ -97,14 +93,12 @@ public final class Model extends Observable implements IModel {
 		return bikeJ2.getX();
 	}
 
-
 	/*
 	 * @see model.IModel#getBikeJ2Y()
 	 */
 	public int getBikeJ2Y() {
 		return bikeJ2.getY();
 	}
-
 
 	/*
 	 * @see model.IModel#setBikeJ2X(int)
@@ -117,7 +111,6 @@ public final class Model extends Observable implements IModel {
 		this.blockNumberJ2++;
 		System.out.println(blockNumberJ2);
 	}
-
 
 	/*
 	 * @see model.IModel#setBikeJ2Y(int)
@@ -132,14 +125,12 @@ public final class Model extends Observable implements IModel {
 
 	}
 
-
 	/*
 	 * @see model.IModel#positionJ1X()
 	 */
 	public int positionJ1X() {
 		return this.bikeJ1.positionX();
 	}
-
 
 	/*
 	 * @see model.IModel#positionJ1Y()
@@ -155,14 +146,12 @@ public final class Model extends Observable implements IModel {
 		return this.bikeJ2.positionX();
 	}
 
-
 	/*
 	 * @see model.IModel#positionJ2Y()
 	 */
 	public int positionJ2Y() {
 		return this.bikeJ2.positionY();
 	}
-
 
 	/*
 	 * @see model.IModel#message(java.lang.String, int)
@@ -173,9 +162,6 @@ public final class Model extends Observable implements IModel {
 		// connector.sauverEnBase(player, time);
 
 	}
-
-
-
 
 	/*
 	 * 
