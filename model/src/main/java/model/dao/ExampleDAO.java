@@ -1,3 +1,9 @@
+/*
+ *  Océane Duquenne
+ * Join : oceane.duquenne@viacesi.fr
+ * 
+ * Version 1.0
+ */
 package model.dao;
 
 import java.sql.CallableStatement;
@@ -8,13 +14,7 @@ import java.util.List;
 
 import model.Example;
 
-// TODO: Auto-generated Javadoc
-/**
- * <h1>The Class ExampleDAO.</h1>
- *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
- */
+
 public abstract class ExampleDAO extends AbstractDAO {
 
 	/** The sql example by id. */

@@ -1,12 +1,17 @@
+/*
+ *  Océane Duquenne
+ * Join : oceane.duquenne@viacesi.fr
+ * 
+ * Version 1.0
+ */
 package controller;
-
-import java.sql.SQLException;
 
 import model.IModel;
 
+/**
+ * The Interface IController.
+ */
 public interface IController {
-
-
 
 	/**
 	 * Set the model of the controller.
@@ -18,9 +23,6 @@ public interface IController {
 
 	/**
 	 * Begin the game.
-	 *
-	 * @throws SQLException
-	 *             the SQL exception
 	 */
 	public void start();
 

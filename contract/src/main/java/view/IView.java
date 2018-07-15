@@ -1,7 +1,17 @@
+/*
+ *  Océane Duquenne
+ * Join : oceane.duquenne@viacesi.fr
+ * 
+ * Version 1.0
+ */
 package view;
 
 import controller.IController;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Interface IView.
+ */
 public interface IView {
 
 	/**
@@ -9,16 +19,17 @@ public interface IView {
 	 *
 	 * @param message
 	 *            the message
+	 * @param time
+	 *            the time
 	 */
 	public void displayMessage(final String message, final int time);
 
 
-	public int getChronoTimerModel();
+
 	/**
 	 * a method update what the user see on screen.
 	 */
 	void repaint();
-
 
 	/**
 	 * a methode Open the window.
@@ -39,10 +50,11 @@ public interface IView {
 	/**
 	 * Get the observer of the view.
 	 *
+	 * @param controller
+	 *            the new controller
 	 * @return An observer
 	 */
 	// Observer getObserver();
-
 
 	/**
 	 * Setter of the controller.

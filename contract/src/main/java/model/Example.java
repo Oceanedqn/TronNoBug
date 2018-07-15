@@ -1,7 +1,13 @@
+/*
+ *  Océane Duquenne
+ * Join : oceane.duquenne@viacesi.fr
+ * 
+ * Version 1.0
+ */
 package model;
-
-
-
+/**
+ * The Class Example.
+ */
 public class Example {
 
     /** The id. */
@@ -53,7 +59,7 @@ public class Example {
     }
 
     /*
-     * (non-Javadoc)
+     * 
      * @see java.lang.Object#toString()
      */
     @Override

@@ -1,3 +1,9 @@
+/*
+ *  Océane Duquenne
+ * Join : oceane.duquenne@viacesi.fr
+ * 
+ * Version 1.0
+ */
 package model;
 
 import java.sql.SQLException;
@@ -5,6 +11,9 @@ import java.util.Observable;
 
 import view.IView;
 
+/**
+ * The Class Model.
+ */
 public final class Model extends Observable implements IModel {
 
 	/** The bike J 1. */
@@ -13,12 +22,19 @@ public final class Model extends Observable implements IModel {
 	/** The bike J 2. */
 	private Bike bikeJ2;
 
+	/** The view. */
+	@SuppressWarnings("unused")
 	private IView view;
 
 	// private int tabBlock[][] = new int[30][20];
 
+	/** The block number J 1. */
 	private int blockNumberJ1 = 0;
+
+	/** The block number J 2. */
 	private int blockNumberJ2 = 0;
+
+	/** The block number. */
 	private int blockNumber = 0;
 
 	/**
@@ -32,6 +48,7 @@ public final class Model extends Observable implements IModel {
 
 	}
 
+
 	/*
 	 * @see model.IModel#getBikeJ1X()
 	 */
@@ -39,12 +56,14 @@ public final class Model extends Observable implements IModel {
 		return bikeJ1.getX();
 	}
 
+
 	/*
 	 * @see model.IModel#getBikeJ1Y()
 	 */
 	public int getBikeJ1Y() {
 		return bikeJ1.getY();
 	}
+
 
 	/*
 	 * @see model.IModel#setBikeJ1X(int)
@@ -72,6 +91,7 @@ public final class Model extends Observable implements IModel {
 		System.out.println(blockNumberJ1);
 	}
 
+
 	/*
 	 * @see model.IModel#getBikeJ2X()
 	 */
@@ -79,12 +99,14 @@ public final class Model extends Observable implements IModel {
 		return bikeJ2.getX();
 	}
 
+
 	/*
 	 * @see model.IModel#getBikeJ2Y()
 	 */
 	public int getBikeJ2Y() {
 		return bikeJ2.getY();
 	}
+
 
 	/*
 	 * @see model.IModel#setBikeJ2X(int)
@@ -97,6 +119,7 @@ public final class Model extends Observable implements IModel {
 		this.blockNumberJ2++;
 		System.out.println(blockNumberJ2);
 	}
+
 
 	/*
 	 * @see model.IModel#setBikeJ2Y(int)
@@ -111,12 +134,14 @@ public final class Model extends Observable implements IModel {
 
 	}
 
+
 	/*
 	 * @see model.IModel#positionJ1X()
 	 */
 	public int positionJ1X() {
 		return this.bikeJ1.positionX();
 	}
+
 
 	/*
 	 * @see model.IModel#positionJ1Y()
@@ -132,6 +157,7 @@ public final class Model extends Observable implements IModel {
 		return this.bikeJ2.positionX();
 	}
 
+
 	/*
 	 * @see model.IModel#positionJ2Y()
 	 */
@@ -139,54 +165,72 @@ public final class Model extends Observable implements IModel {
 		return this.bikeJ2.positionY();
 	}
 
+
 	/*
 	 * @see model.IModel#message(java.lang.String, int)
 	 */
 	public void message(String player, int time) throws SQLException {
-		TronBDDConnector connector = new TronBDDConnector();
-		System.out.println("ouverture bdd");
-		connector.sauverEnBase(player, time);
+		// TronBDDConnector connector = new TronBDDConnector();
+		// System.out.println("ouverture bdd");
+		// connector.sauverEnBase(player, time);
 
 	}
+
+
+
 
 	/*
-	 * public int[][] getTabBlock() { return tabBlock; }
 	 * 
-	 * public void setTabBlock(int tabBlock[][]) { this.tabBlock = tabBlock; }
+	 * 
+	 * @see model.IModel#getBlockNumber()
 	 */
-
-	public int getChronoTimerr() {
-		return view.getChronoTimerModel();
-	}
-
 	public int getBlockNumber() {
 		return blockNumber;
 	}
 
+	/*
+	 *
+	 * 
+	 * @see model.IModel#setBlockNumber(int)
+	 */
 	public void setBlockNumber(int numberBlock) {
 		this.blockNumber = numberBlock;
 	}
 
+	/*
+	 * 
+	 * 
+	 * @see model.IModel#getBlockNumberJ1()
+	 */
 	public int getBlockNumberJ1() {
 		return blockNumberJ1;
 	}
 
+	/*
+	 * 
+	 * 
+	 * @see model.IModel#setBlockNumberJ1(int)
+	 */
 	public void setBlockNumberJ1(int numberBlockJ1) {
 		this.blockNumberJ1 = numberBlockJ1;
 	}
 
+	/*
+	 * 
+	 * 
+	 * @see model.IModel#getBlockNumberJ2()
+	 */
 	public int getBlockNumberJ2() {
 		return blockNumberJ2;
 	}
 
+	/*
+	 * 
+	 * 
+	 * @see model.IModel#setBlockNumberJ2(int)
+	 */
 	public void setBlockNumberJ2(int numberBlockJ2) {
 		this.blockNumberJ2 = numberBlockJ2;
 	}
-
-	/*
-	 * public int getTabBlockX(int bn) { return tabBlock[bn][0]; }
-	 * 
-	 * public int getTabBlockY(int bn) { return tabBlock[bn][1]; }
-	 */
 
 }

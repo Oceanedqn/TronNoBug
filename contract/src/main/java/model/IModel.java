@@ -1,13 +1,14 @@
+/*
+ *  Océane Duquenne
+ * Join : oceane.duquenne@viacesi.fr
+ * 
+ * Version 1.0
+ */
 package model;
 
 import java.sql.SQLException;
 
-/**
- * <h1>The Interface IModel.</h1>
- *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
- */
+
 public interface IModel {
 
 	/**
@@ -102,19 +103,51 @@ public interface IModel {
 
 	// public void setTabBlock(int tabBlock[][]);
 
+	/**
+	 * Gets the block number.
+	 *
+	 * @return the block number
+	 */
 	public int getBlockNumber();
 
+	/**
+	 * Sets the block number.
+	 *
+	 * @param numberBlock
+	 *            the new block number
+	 */
 	public void setBlockNumber(int numberBlock);
 
+	/**
+	 * Gets the block number J 1.
+	 *
+	 * @return the block number J 1
+	 */
 	public int getBlockNumberJ1();
 
+	/**
+	 * Sets the block number J 1.
+	 *
+	 * @param numberBlockJ1
+	 *            the new block number J 1
+	 */
 	public void setBlockNumberJ1(int numberBlockJ1);
 
+	/**
+	 * Gets the block number J 2.
+	 *
+	 * @return the block number J 2
+	 */
 	public int getBlockNumberJ2();
 
+	/**
+	 * Sets the block number J 2.
+	 *
+	 * @param numberBlockJ2
+	 *            the new block number J 2
+	 */
 	public void setBlockNumberJ2(int numberBlockJ2);
 
-	public int getChronoTimerr();
 
 	// public int getTabBlockX(int bn);
 

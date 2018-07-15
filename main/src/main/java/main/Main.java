@@ -31,8 +31,6 @@ public abstract class Main {
 		final Controller controller = new Controller(view, model);
 		view.setController(controller);
 		controller.start();
-		// final ControllerFacade controller = new ControllerFacade(new ViewFacade(),
-		// new ModelFacade());
 
 	}
 

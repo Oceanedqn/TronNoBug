@@ -1,3 +1,9 @@
+/*
+ *  Océane Duquenne
+ * Join : oceane.duquenne@viacesi.fr
+ * 
+ * Version 1.0
+ */
 package view;
 
 import java.awt.Color;
@@ -32,7 +38,6 @@ public class MenuPanel extends JPanel implements Observer {
 		setVisible(true);
 	}
 
-	
 	/**
 	 * Method for draw the menu.
 	 *
@@ -67,9 +72,6 @@ public class MenuPanel extends JPanel implements Observer {
 		} catch (final IOException e) {
 			e.printStackTrace();
 		}
-		
-		
-
 
 	}
 	// FAIRE UN TRUC POUR LE FAIRE CHANGER DE COULEUR
@@ -82,6 +84,11 @@ public class MenuPanel extends JPanel implements Observer {
 	 * { e.printStackTrace(); } }
 	 */
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
+	 */
 	/*
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
 	 */

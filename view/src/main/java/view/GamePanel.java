@@ -1,3 +1,9 @@
+/*
+ *  Océane Duquenne
+ * Join : oceane.duquenne@viacesi.fr
+ * 
+ * Version 1.0
+ */
 package view;
 
 import java.awt.Color;
@@ -24,10 +30,10 @@ class GamePanel extends JPanel {
 	/** The J 2 y. */
 	private int J2y;
 
-	private String string;
-
+	/** The block number J 1. */
 	private String blockNumberJ1;
 
+	/** The block number J 2. */
 	private String blockNumberJ2;
 
 	/** The Constant serialVersionUID. */
@@ -36,6 +42,7 @@ class GamePanel extends JPanel {
 	/** The model. */
 	private IModel model;
 
+	/** The chrono. */
 	private Chrono chrono;
 
 	/**
@@ -43,9 +50,6 @@ class GamePanel extends JPanel {
 	 */
 	public GamePanel() {
 		// clock = new ClockTimer();
-
-
-
 
 		chrono = new Chrono();
 
@@ -125,13 +129,12 @@ class GamePanel extends JPanel {
 		// ############################################################################
 		// ################################## Timer ###################################
 		// ############################################################################
-		string = Integer.toString(this.chrono.getStr());
+		// string = Integer.toString(this.chrono.getStr());
 		System.out.println(this.chrono.getStr() + "methode timer");
-
 
 		g.setColor(Color.WHITE);
 		g.drawString("Timer :", 625, 70);
-		g.drawString(string, 665, 70);
+		g.drawString(this.chrono.getStr(), 665, 70);
 
 		// ############################################################################
 		// ################################## Block ###################################
@@ -145,7 +148,6 @@ class GamePanel extends JPanel {
 
 		g.setColor(Color.WHITE);
 		g.drawString("BLOCK : " + blockNumberJ2, 625, 350);
-
 
 	}
 
@@ -166,7 +168,12 @@ class GamePanel extends JPanel {
 
 	}
 
-	public int getChronoTimer() {
+	/**
+	 * Gets the chrono timer.
+	 *
+	 * @return the chrono timer
+	 */
+	public String getChronoTimer() {
 		return this.chrono.getStr();
 	}
 
@@ -228,15 +235,5 @@ class GamePanel extends JPanel {
 	public void setJ2y(int J2y) {
 		this.J2y = J2y;
 	}
-
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see view.Observer#update()
-	 */
-
-
-
 
 }

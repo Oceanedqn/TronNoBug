@@ -1,3 +1,9 @@
+/*
+ *  Océane Duquenne
+ * Join : oceane.duquenne@viacesi.fr
+ * 
+ * Version 1.0
+ */
 package model.dao;
 
 import java.sql.Connection;
@@ -8,12 +14,8 @@ import java.sql.Statement;
 
 import com.mysql.cj.jdbc.CallableStatement;
 
-// TODO: Auto-generated Javadoc
 /**
- * <h1>The Class BoulderDashBDDConnector.</h1>
- *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
+ * The Class TronBDDConnector.
  */
 final class TronBDDConnector {
 
@@ -38,7 +40,7 @@ final class TronBDDConnector {
 	/**
 	 * Instantiates a new boulder dash BDD connector.
 	 */
-	private TronBDDConnector() {
+	TronBDDConnector() {
 		this.open();
 	}
 
@@ -53,9 +55,9 @@ final class TronBDDConnector {
 	 *             the SQL exception
 	 */
 	public void message(String message, int time) throws SQLException {
-		// System.out.println("envoie" + message + "test");
+		System.out.println("envoie" + message + "test");
 		final String sql = "{CALL Message(?, ?)}";
-		// System.out.println("test1");
+		System.out.println("test1");
 		final CallableStatement INSERT = (CallableStatement) this.getConnection().prepareCall(sql);
 		INSERT.setString(1, message);
 		INSERT.setInt(2, time);
@@ -202,26 +204,25 @@ final class TronBDDConnector {
 	 *            the player
 	 * @param time
 	 *            the time
+	 * @return the tron BDD connector
 	 */
-	public static void sauverEnBase(String player, int time) {
-		String url = "jdbc:mysql://localhost/lorann";
+	public TronBDDConnector sauverEnBase(String player, int time) {
+		String url = "jdbc:mysql://localhost/lorann?useSSL=false&serverTimezone=UTC";
 		String login = "root";
 		String passvd = "";
 		Connection cn = null;
 		Statement st = null;
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+
 			cn = DriverManager.getConnection(url, login, passvd);
 			st = cn.createStatement();
-			String sql = "INSERT INTO `lorann` (`player_win`), (`player_time`) (`" + player + time + "`)";
+			String sql = "INSERT INTO `lorann` (`player_win`), (`player_time`) VALUES (`" + player + time + "`)";
 
 			st.executeQuery(sql);
 		} catch (SQLException e) {
 			e.printStackTrace();
 
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} finally {
 			try {
 				cn.close();
@@ -230,6 +231,7 @@ final class TronBDDConnector {
 				e.printStackTrace();
 			}
 		}
+		return instance;
 	}
 
 }

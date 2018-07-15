@@ -1,3 +1,9 @@
+/*
+ *  Océane Duquenne
+ * Join : oceane.duquenne@viacesi.fr
+ * 
+ * Version 1.0
+ */
 package view;
 
 import java.awt.event.KeyEvent;
@@ -27,7 +33,7 @@ class Windows extends JFrame implements KeyListener, IView {
 	/** The controller. */
 	private IController controller;
 
-	/** The deja appuyer. */
+	/** The already used. */
 	boolean alreadyUsed = false;
 
 	/** The clock. */
@@ -38,13 +44,8 @@ class Windows extends JFrame implements KeyListener, IView {
 	/** The game. */
 	private GamePanel game = new GamePanel();
 
+	/** The chrono. */
 	private Chrono chrono;
-
-	// int timer = 0;
-
-	// private Chrono chrono = new Chrono();
-
-	// private ClockTimer clock = new ClockTimer();
 
 	/**
 	 * Instantiates a new windows.
@@ -150,7 +151,7 @@ class Windows extends JFrame implements KeyListener, IView {
 	}
 
 	/*
-	 * *
+	 * 
 	 * 
 	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
 	 */
@@ -172,10 +173,6 @@ class Windows extends JFrame implements KeyListener, IView {
 	}
 
 	/*
-	 * @see view.IView#openWindows()
-	 */
-
-	/*
 	 * @see view.IView#closeWindows()
 	 */
 	@Override
@@ -184,18 +181,30 @@ class Windows extends JFrame implements KeyListener, IView {
 
 	}
 
+	/**
+	 * Gets the chrono.
+	 *
+	 * @return the chrono
+	 */
 	public Chrono getChrono() {
 		return chrono;
 	}
 
+	/**
+	 * Sets the chrono.
+	 *
+	 * @param chrono
+	 *            the new chrono
+	 */
 	public void setChrono(Chrono chrono) {
 		this.chrono = chrono;
 	}
 
 	/*
+	 * 
+	 * 
 	 * @see view.IView#position()
 	 */
-
 	public void position() {
 		this.position();
 
@@ -207,10 +216,6 @@ class Windows extends JFrame implements KeyListener, IView {
 	public void setClock() {
 		// this.clock.setTimer((this.controller.Clock()));
 	}
-
-	/**
-	 * Sets the time.
-	 */
 
 	/*
 	 * repaint
@@ -226,9 +231,6 @@ class Windows extends JFrame implements KeyListener, IView {
 	 * Gets the menuu.
 	 *
 	 * @return the menuu
-	 */
-	/*
-	 * public MenuPanel getMenuu() { return this.menuu; }
 	 */
 
 	public MenuPanel getMenuPanel() {
@@ -267,16 +269,5 @@ class Windows extends JFrame implements KeyListener, IView {
 	public void displayMessage(final String message, final int time) {
 		JOptionPane.showInputDialog(null, message, game.getChronoTimer());
 	}
-
-	@Override
-	public int getChronoTimerModel() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
-
-
-
 
 }

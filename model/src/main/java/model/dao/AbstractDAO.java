@@ -1,15 +1,15 @@
+/*
+ *  Océane Duquenne
+ * Join : oceane.duquenne@viacesi.fr
+ * 
+ * Version 1.0
+ */
 package model.dao;
 
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 
-// TODO: Auto-generated Javadoc
-/**
- * <h1>The Class AbstractDAO.</h1>
- * 
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
- */
+
 public abstract class AbstractDAO {
 
 	/**

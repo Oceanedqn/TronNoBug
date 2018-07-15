@@ -61,9 +61,8 @@ public class Controller implements IController {
 	public void start() {
 		// this.model.getObservable().addObserver(this.view.getObserver());;
 
-		// this.clock = new Clock(this);
-		// this.clock.start();
-		System.out.println("Start");
+		// this.chrono = new Chrono(this);
+		// this.chrono.run();
 
 		// System.out.println("Start");
 		// this.getView().displayMessage(this.getModel().getExampleById(1).toString());
@@ -81,13 +80,7 @@ public class Controller implements IController {
 	}
 
 	/*
-	 * @see controller.IController#orderPerform(controller.Order, int) method to
-	 * manage the actions of the players
-	 * 
-	 */
-
-	/*
-	 * (non-Javadoc)
+	 * Methode to manage the actions of the players
 	 * 
 	 * @see controller.IController#orderPerform(controller.Order, int)
 	 */
@@ -257,8 +250,7 @@ public class Controller implements IController {
 		else if (model.getBlockNumberJ2() > 30) {
 			javax.swing.JOptionPane.showMessageDialog(null,
 					"J2 WIN AVEC " + model.getBlockNumberJ2() + " BLOCK, HUM JE VOIS, PARTIE TRÈS SERRÉE",
-					"END MESSAGE",
-					JOptionPane.INFORMATION_MESSAGE);
+					"END MESSAGE", JOptionPane.INFORMATION_MESSAGE);
 		}
 
 		System.exit(0);
@@ -303,11 +295,6 @@ public class Controller implements IController {
 
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see controller.IController#getModel()
-	 */
 	/*
 	 * @see controller.IController#getModel()
 	 */
@@ -377,21 +364,6 @@ public class Controller implements IController {
 	 */
 	public int moveBikeJ2Y() {
 		return this.model.getBikeJ2Y();
-	}
-
-	/**
-	 * Collision.
-	 *
-	 * @param positionX
-	 *            the position X
-	 * @param positionY
-	 *            the position Y
-	 * @return the int
-	 */
-	// RETOURNE JUSTE X
-	public int collision(final int positionX, final int positionY) {
-		return positionX;
-
 	}
 
 	/**
