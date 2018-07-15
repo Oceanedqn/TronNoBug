@@ -87,7 +87,6 @@ public class Controller implements IController {
 	public void orderPerform(Order keycode, int numPlayer) {
 
 		if (numPlayer == 3) {
-			// System.out.println("caca");
 			inGame = true;
 		}
 

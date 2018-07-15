@@ -1,13 +1,17 @@
 package mock;
 
-
-
-
-
+/*
+ * En programmation orientée objet, les mocks 
+ * (simulacres ou mock object) sont des objets 
+ * simulés qui reproduisent le comportement d'objets 
+ * réels de manière contrôlée. Un programmeur crée un 
+ * mock dans le but de tester le comportement d'autres 
+ * objets, réels, mais liés à un objet inaccessible ou 
+ * non implémenté. Ce dernier est alors remplacé par un mock.
+ */
 
 public class BikeMock {
 
-	
 	private int x;
 
 	/** The y. */
