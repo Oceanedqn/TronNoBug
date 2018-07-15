@@ -3,6 +3,8 @@ package model;
 import java.sql.SQLException;
 import java.util.Observable;
 
+import view.IView;
+
 public final class Model extends Observable implements IModel {
 
 	/** The bike J 1. */
@@ -10,6 +12,8 @@ public final class Model extends Observable implements IModel {
 
 	/** The bike J 2. */
 	private Bike bikeJ2;
+
+	private IView view;
 
 	// private int tabBlock[][] = new int[30][20];
 
@@ -150,6 +154,10 @@ public final class Model extends Observable implements IModel {
 	 * 
 	 * public void setTabBlock(int tabBlock[][]) { this.tabBlock = tabBlock; }
 	 */
+
+	public int getChronoTimerr() {
+		return view.getChronoTimerModel();
+	}
 
 	public int getBlockNumber() {
 		return blockNumber;

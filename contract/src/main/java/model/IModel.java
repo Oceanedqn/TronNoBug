@@ -114,6 +114,8 @@ public interface IModel {
 
 	public void setBlockNumberJ2(int numberBlockJ2);
 
+	public int getChronoTimerr();
+
 	// public int getTabBlockX(int bn);
 
 	// public int getTabBlockY(int bn);

@@ -53,9 +53,9 @@ final class TronBDDConnector {
 	 *             the SQL exception
 	 */
 	public void message(String message, int time) throws SQLException {
-		System.out.println("envoie" + message + "test");
+		// System.out.println("envoie" + message + "test");
 		final String sql = "{CALL Message(?, ?)}";
-		System.out.println("test1");
+		// System.out.println("test1");
 		final CallableStatement INSERT = (CallableStatement) this.getConnection().prepareCall(sql);
 		INSERT.setString(1, message);
 		INSERT.setInt(2, time);

@@ -184,6 +184,14 @@ class Windows extends JFrame implements KeyListener, IView {
 
 	}
 
+	public Chrono getChrono() {
+		return chrono;
+	}
+
+	public void setChrono(Chrono chrono) {
+		this.chrono = chrono;
+	}
+
 	/*
 	 * @see view.IView#position()
 	 */
@@ -256,23 +264,18 @@ class Windows extends JFrame implements KeyListener, IView {
 	/*
 	 * @see view.IView#displayMessage(java.lang.String)
 	 */
-	public final void displayMessage(final String message) {
-		JOptionPane.showMessageDialog(null, message);
-	}
-
-	public Chrono getChrono() {
-		return (Chrono) chrono;
-	}
-
-	public void setChrono(Chrono chrono2) {
-		this.chrono = chrono2;
+	public void displayMessage(final String message, final int time) {
+		JOptionPane.showInputDialog(null, message, game.getChronoTimer());
 	}
 
 	@Override
-	public int getPatate() {
+	public int getChronoTimerModel() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+
+
 
 
 

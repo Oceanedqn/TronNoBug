@@ -10,15 +10,16 @@ public interface IView {
 	 * @param message
 	 *            the message
 	 */
-	void displayMessage(String message);
+	public void displayMessage(final String message, final int time);
 
 
+	public int getChronoTimerModel();
 	/**
 	 * a method update what the user see on screen.
 	 */
 	void repaint();
 
-	public int getPatate();
+
 	/**
 	 * a methode Open the window.
 	 */

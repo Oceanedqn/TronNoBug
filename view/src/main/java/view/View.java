@@ -11,6 +11,10 @@ public class View implements IView {
 
 	private Chrono chrono;
 
+	private GamePanel game;
+
+
+
 
 
 	// private IModel model;
@@ -31,9 +35,7 @@ public class View implements IView {
 
 	}
 
-	public String getChrono() {
-		return this.chrono.getStr();
-	}
+
 
 	/*
 	 * @see view.IView#openWindows()
@@ -72,9 +74,9 @@ public class View implements IView {
 	/*
 	 * @see view.IView#displayMessage(java.lang.String)
 	 */
-	@Override
-	public void displayMessage(String message) {
 
+	public int getChronoTimerModel() {
+		return this.game.getChronoTimer();
 	}
 
 	/*
@@ -86,5 +88,10 @@ public class View implements IView {
 	}
 
 
+	@Override
+	public void displayMessage(String message, int time) {
+		// TODO Auto-generated method stub
+
+	}
 
 }

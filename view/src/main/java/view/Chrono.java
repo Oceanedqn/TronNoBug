@@ -7,38 +7,33 @@ public class Chrono implements Runnable {
 	private IChrono chrono;
 	private final int PAUSE = 1000;
 	private int compteurTemps;
-	private String str;
-	private int finalTime;
-	private boolean isEnd = false;
+	private int str;
+	private int finalTime = 50;
+	private boolean isEnd = true;
+
+	Thread count = new Thread(this);
 
 	public Chrono() {
 		this.compteurTemps = 0;
-		this.str = "0";
+		this.str = 0;
 
-		Thread count = new Thread(this);
+
 		count.start();
 	}
 
-	public int getCompteursTemps() {
 
-		return compteurTemps;
-	}
-
-	public String getStr() {
-		// System.out.println(str + "getstr");
-		return str;
-	}
 
 	public void run() {
 
-		while (true) {
+
+		while (isEnd) {
 			try {
 				Thread.sleep(PAUSE);
 			} catch (InterruptedException e) {
 			}
 			this.compteurTemps++;
-			this.str = "" + this.compteurTemps;
-			// System.out.println(getStr() + " methode run");
+			this.str = this.compteurTemps;
+			// System.out.println(compteurTemps + " methode run");
 		}
 
 	}
@@ -49,6 +44,15 @@ public class Chrono implements Runnable {
 
 
 
+	public int getCompteursTemps() {
+
+		return compteurTemps;
+	}
+
+	public int getStr() {
+		// System.out.println(str + "getstr");
+		return str;
+	}
 
 
 

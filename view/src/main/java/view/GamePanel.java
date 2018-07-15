@@ -24,7 +24,11 @@ class GamePanel extends JPanel {
 	/** The J 2 y. */
 	private int J2y;
 
-	private String patate;
+	private String string;
+
+	private String blockNumberJ1;
+
+	private String blockNumberJ2;
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -6371690572651419043L;
@@ -39,12 +43,16 @@ class GamePanel extends JPanel {
 	 */
 	public GamePanel() {
 		// clock = new ClockTimer();
-		this.setVisible(true);
+
+
+
+
 		chrono = new Chrono();
 
-		Thread chronoEcran = new Thread(new Chrono());
-		chronoEcran.start();
+		// Thread chronoEcran = new Thread(new Chrono());
+		// chronoEcran.start();
 
+		this.setVisible(true);
 	}
 
 	/**
@@ -88,14 +96,16 @@ class GamePanel extends JPanel {
 		g.drawString("LEFT 	: Q", 625, 140);
 		g.drawString("DOWN 	: S", 625, 160);
 		g.drawString("RIGHT : D", 625, 180);
+		g.drawString("_________", 625, 190);
 
 		g.setColor(Color.YELLOW);
-		g.drawString("ORDER PLAYER 2", 620, 220);
+		g.drawString("ORDER PLAYER 2", 620, 240);
 		g.setColor(Color.WHITE);
-		g.drawString("UP 	: UP", 625, 240);
-		g.drawString("LEFT 	: LEFT", 625, 260);
-		g.drawString("DOWN 	: DOWN", 625, 280);
-		g.drawString("RIGHT : RIGHT", 625, 300);
+		g.drawString("UP 	: UP", 625, 260);
+		g.drawString("LEFT 	: LEFT", 625, 280);
+		g.drawString("DOWN 	: DOWN", 625, 300);
+		g.drawString("RIGHT : RIGHT", 625, 320);
+		g.drawString("_____________", 625, 330);
 
 		// ############################################################################
 		// ################################## Cube ####################################
@@ -115,10 +125,27 @@ class GamePanel extends JPanel {
 		// ############################################################################
 		// ################################## Timer ###################################
 		// ############################################################################
+		string = Integer.toString(this.chrono.getStr());
+		System.out.println(this.chrono.getStr() + "methode timer");
+
 
 		g.setColor(Color.WHITE);
 		g.drawString("Timer :", 625, 70);
-		g.drawString(this.chrono.getStr(), 665, 70);
+		g.drawString(string, 665, 70);
+
+		// ############################################################################
+		// ################################## Block ###################################
+		// ############################################################################
+
+		blockNumberJ1 = Integer.toString(this.model.getBlockNumberJ1());
+		g.setColor(Color.WHITE);
+		g.drawString("BLOCK : " + blockNumberJ1, 625, 210);
+
+		blockNumberJ2 = Integer.toString(this.model.getBlockNumberJ2());
+
+		g.setColor(Color.WHITE);
+		g.drawString("BLOCK : " + blockNumberJ2, 625, 350);
+
 
 	}
 
@@ -137,6 +164,10 @@ class GamePanel extends JPanel {
 
 		this.repaint();
 
+	}
+
+	public int getChronoTimer() {
+		return this.chrono.getStr();
 	}
 
 	/**
@@ -206,12 +237,6 @@ class GamePanel extends JPanel {
 	 */
 
 
-	public String getPatate() {
-		return patate;
-	}
 
-	public void setPatate(String patate) {
-		this.patate = patate;
-	}
 
 }

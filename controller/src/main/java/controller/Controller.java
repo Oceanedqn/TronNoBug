@@ -1,5 +1,7 @@
 package controller;
 
+import javax.swing.JOptionPane;
+
 import model.IModel;
 import view.IView;
 
@@ -19,9 +21,6 @@ public class Controller implements IController {
 	private IChrono chrono;
 
 	/** The chrono. */
-
-
-
 
 	// int time = view.getChrono().getTime()
 
@@ -44,12 +43,12 @@ public class Controller implements IController {
 	 *            the view
 	 * @param model
 	 *            the model
-	 * @param chrono
 	 */
 	public Controller(final IView view, final IModel model) {
 
 		this.setView(view);
 		this.setModel(model);
+		this.setChrono(chrono);
 		// this.chrono = chrono;
 
 		// this.view.position();
@@ -156,82 +155,82 @@ public class Controller implements IController {
 
 		// while (!chrono.isEnd()) {
 
-			if (keycode == 1) {
+		if (keycode == 1) {
 
-				tabMap[this.getModel().getBikeJ1X() / 20][this.getModel().getBikeJ1Y() / 20] = 1;
-				switch (order) {
+			tabMap[this.getModel().getBikeJ1X() / 20][this.getModel().getBikeJ1Y() / 20] = 1;
+			switch (order) {
 
-				case UP:
-					this.getModel().setBikeJ1Y(this.getModel().positionJ1Y() - 20);
+			case UP:
+				this.getModel().setBikeJ1Y(this.getModel().positionJ1Y() - 20);
 
-					break;
-				case DOWN:
+				break;
+			case DOWN:
 
-					this.getModel().setBikeJ1Y(this.getModel().positionJ1Y() + 20);
+				this.getModel().setBikeJ1Y(this.getModel().positionJ1Y() + 20);
 
-					break;
-				case ENTER:
-					break;
-				case LEFT:
-					this.getModel().setBikeJ1X(this.getModel().positionJ1X() - 20);
+				break;
+			case ENTER:
+				break;
+			case LEFT:
+				this.getModel().setBikeJ1X(this.getModel().positionJ1X() - 20);
 
-					break;
-				case RIGHT:
-					this.getModel().setBikeJ1X(this.getModel().positionJ1X() + 20);
+				break;
+			case RIGHT:
+				this.getModel().setBikeJ1X(this.getModel().positionJ1X() + 20);
 
-					break;
-				default:
-					break;
-				}
+				break;
+			default:
+				break;
+			}
 
-				if (this.getModel().getBikeJ1X() / 20 > 29 || this.getModel().getBikeJ1Y() / 20 > 19
-						|| (this.getModel().getBikeJ1X() / 20 < 0 || this.getModel().getBikeJ1Y() / 20 < 0)) {
-					System.out.println("Mort : Collision hors map");
-					endJ1();
-					;
+			if (this.getModel().getBikeJ1X() / 20 > 29 || this.getModel().getBikeJ1Y() / 20 > 19
+					|| (this.getModel().getBikeJ1X() / 20 < 0 || this.getModel().getBikeJ1Y() / 20 < 0)) {
+				System.out.println("Mort : Collision hors map");
+				endJ1();
+				;
 
-				} else if (tabMap[this.getModel().getBikeJ1X() / 20][this.getModel().getBikeJ1Y() / 20] == 1) {
-					System.out.println("Mort : Collision avec un mur");
-					endJ1();
-				}
+			} else if (tabMap[this.getModel().getBikeJ1X() / 20][this.getModel().getBikeJ1Y() / 20] == 1) {
+				System.out.println("Mort : Collision avec un mur");
+				endJ1();
+			}
+
+		}
+		if (keycode == 2) {
+
+			tabMap[this.getModel().getBikeJ2X() / 20][this.getModel().getBikeJ2Y() / 20] = 1;
+			switch (order) {
+			case UP:
+				this.getModel().setBikeJ2Y(this.getModel().positionJ2Y() - 20);
+
+				break;
+			case DOWN:
+				this.getModel().setBikeJ2Y(this.getModel().positionJ2Y() + 20);
+
+				break;
+			case ENTER:
+				break;
+			case LEFT:
+				this.getModel().setBikeJ2X(this.getModel().positionJ2X() - 20);
+
+				break;
+			case RIGHT:
+				this.getModel().setBikeJ2X(this.getModel().positionJ2X() + 20);
+
+				break;
+			default:
+				break;
 
 			}
-			if (keycode == 2) {
 
-				tabMap[this.getModel().getBikeJ2X() / 20][this.getModel().getBikeJ2Y() / 20] = 1;
-				switch (order) {
-				case UP:
-					this.getModel().setBikeJ2Y(this.getModel().positionJ2Y() - 20);
-
-					break;
-				case DOWN:
-					this.getModel().setBikeJ2Y(this.getModel().positionJ2Y() + 20);
-
-					break;
-				case ENTER:
-					break;
-				case LEFT:
-					this.getModel().setBikeJ2X(this.getModel().positionJ2X() - 20);
-
-					break;
-				case RIGHT:
-					this.getModel().setBikeJ2X(this.getModel().positionJ2X() + 20);
-
-					break;
-				default:
-					break;
-
-				}
-
-				if (this.getModel().getBikeJ2X() / 20 > 29 || this.getModel().getBikeJ2Y() / 20 > 19
-						|| (this.getModel().getBikeJ2X() / 20 < 0 || this.getModel().getBikeJ2Y() / 20 < 0)) {
-					System.out.println("Mort : Collision hors map");
-					endJ2();
-				} else if (tabMap[this.getModel().getBikeJ2X() / 20][this.getModel().getBikeJ2Y() / 20] == 1) {
-					System.out.println("Mort : Collision avec un mur");
-					endJ2();
-				}
+			if (this.getModel().getBikeJ2X() / 20 > 29 || this.getModel().getBikeJ2Y() / 20 > 19
+					|| (this.getModel().getBikeJ2X() / 20 < 0 || this.getModel().getBikeJ2Y() / 20 < 0)) {
+				System.out.println("Mort : Collision hors map");
+				endJ2();
+			} else if (tabMap[this.getModel().getBikeJ2X() / 20][this.getModel().getBikeJ2Y() / 20] == 1) {
+				System.out.println("Mort : Collision avec un mur");
+				endJ2();
 			}
+		}
 		// }
 	}
 
@@ -240,11 +239,29 @@ public class Controller implements IController {
 	 */
 	public void endJ1() {
 
-
 		this.getView().closeWindows();
-		javax.swing.JOptionPane.showMessageDialog(null, "J2 WIN");
-		System.exit(0);
 
+		if (model.getBlockNumberJ2() == 0) {
+			javax.swing.JOptionPane.showMessageDialog(null,
+					"J2 WIN AVEC " + model.getBlockNumberJ2() + " MÛRS POSÉ, BAH ALORS ON EST NUL !", "END MESSAGE",
+					JOptionPane.INFORMATION_MESSAGE);
+		}
+
+		else if (model.getBlockNumberJ2() > 0 && model.getBlockNumberJ2() < 29) {
+
+			javax.swing.JOptionPane.showMessageDialog(null,
+					"J2 WIN AVEC SEULEMENT " + model.getBlockNumberJ2() + " BLOCK", "END MESSAGE",
+					JOptionPane.INFORMATION_MESSAGE);
+		}
+
+		else if (model.getBlockNumberJ2() > 30) {
+			javax.swing.JOptionPane.showMessageDialog(null,
+					"J2 WIN AVEC " + model.getBlockNumberJ2() + " BLOCK, HUM JE VOIS, PARTIE TRÈS SERRÉE",
+					"END MESSAGE",
+					JOptionPane.INFORMATION_MESSAGE);
+		}
+
+		System.exit(0);
 	}
 
 	/**
@@ -252,15 +269,29 @@ public class Controller implements IController {
 	 */
 	public void endJ2() {
 
-		// this.isEnd = true;
-		// System.out.println(this.getView().getPatate());
 		this.getView().closeWindows();
-		javax.swing.JOptionPane.showMessageDialog(null, "J1 WIN" /* + IChrono.this.getStr() */);
+
+		if (model.getBlockNumberJ1() == 0) {
+			javax.swing.JOptionPane.showMessageDialog(null,
+					"J1 WIN AVEC " + model.getBlockNumberJ1() + " MÛRS POSÉ, BAH ALORS ON EST NUL !", "END MESSAGE",
+					JOptionPane.INFORMATION_MESSAGE);
+		}
+
+		else if (model.getBlockNumberJ1() > 0 && model.getBlockNumberJ1() < 29) {
+
+			javax.swing.JOptionPane.showMessageDialog(null,
+					"J1 WIN AVEC SEULEMENT " + model.getBlockNumberJ1() + " BLOCK", "END MESSAGE",
+					JOptionPane.INFORMATION_MESSAGE);
+		}
+
+		else if (model.getBlockNumberJ1() > 30) {
+			javax.swing.JOptionPane.showMessageDialog(null,
+					"J1 WIN AVEC " + model.getBlockNumberJ1() + " BLOCK, HUM JE VOIS, PARTIE TRÈS SERRÉE",
+					"END MESSAGE", JOptionPane.INFORMATION_MESSAGE);
+		}
+
 		System.exit(0);
-
 	}
-
-
 
 	/**
 	 * Update.
@@ -282,6 +313,15 @@ public class Controller implements IController {
 	 */
 	public IModel getModel() {
 		return this.model;
+	}
+
+	@SuppressWarnings("unused")
+	private IChrono getChrono() {
+		return this.chrono;
+	}
+
+	private void setChrono(IChrono chrono) {
+		this.chrono = chrono;
 	}
 
 	/**
