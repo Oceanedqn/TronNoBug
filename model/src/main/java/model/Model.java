@@ -26,8 +26,6 @@ public final class Model extends Observable implements IModel {
 	@SuppressWarnings("unused")
 	private IView view;
 
-	// private int tabBlock[][] = new int[30][20];
-
 	/** The block number J 1. */
 	private int blockNumberJ1 = 0;
 
