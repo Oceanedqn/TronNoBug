@@ -8,6 +8,8 @@ package controller;
 
 import static org.junit.Assert.assertEquals;
 
+import javax.swing.text.View;
+
 import org.junit.Test;
 
 /**
@@ -17,6 +19,7 @@ public class ControllerTest {
 
 	/** The test num player. */
 	int testNumPlayer = 3;
+	private View view;
 
 	/**
 	 * Test order perform.
