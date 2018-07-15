@@ -270,4 +270,6 @@ class Windows extends JFrame implements KeyListener, IView {
 		JOptionPane.showInputDialog(null, message, game.getChronoTimer());
 	}
 
+
+
 }

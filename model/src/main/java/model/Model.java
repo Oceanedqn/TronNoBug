@@ -70,7 +70,7 @@ public final class Model extends Observable implements IModel {
 		this.bikeJ1.setX(x);
 		this.blockNumber++;
 		this.blockNumberJ1++;
-		System.out.println(blockNumberJ1);
+		// System.out.println(blockNumberJ1);
 
 	}
 
@@ -83,7 +83,7 @@ public final class Model extends Observable implements IModel {
 		this.bikeJ1.setY(y);
 		this.blockNumber++;
 		this.blockNumberJ1++;
-		System.out.println(blockNumberJ1);
+		// System.out.println(blockNumberJ1);
 	}
 
 	/*
@@ -109,7 +109,7 @@ public final class Model extends Observable implements IModel {
 		this.bikeJ2.setX(x);
 		this.blockNumber++;
 		this.blockNumberJ2++;
-		System.out.println(blockNumberJ2);
+		// System.out.println(blockNumberJ2);
 	}
 
 	/*
@@ -121,7 +121,7 @@ public final class Model extends Observable implements IModel {
 		this.bikeJ2.setY(y);
 		this.blockNumber++;
 		this.blockNumberJ2++;
-		System.out.println(blockNumberJ2);
+		// System.out.println(blockNumberJ2);
 
 	}
 

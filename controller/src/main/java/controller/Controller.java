@@ -11,8 +11,8 @@ import view.IView;
  */
 public class Controller implements IController {
 
+	// private IGamePanel game;
 	/** The view. */
-
 	private IView view;
 
 	/** The model. */
@@ -232,6 +232,9 @@ public class Controller implements IController {
 	 */
 	public void endJ1() {
 
+		// int test;
+		// test = this.game.getFinalTime();
+		// System.out.println(test);
 		this.getView().closeWindows();
 
 		if (model.getBlockNumberJ2() == 0) {

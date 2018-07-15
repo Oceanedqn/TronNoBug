@@ -18,14 +18,6 @@ public class View implements IView {
 	/** The win. */
 	private Windows win;
 
-	/** The chrono. */
-	@SuppressWarnings("unused")
-	private Chrono chrono;
-
-	/** The game. */
-	@SuppressWarnings("unused")
-	private GamePanel game;
-
 	// private IModel model;
 
 	/**

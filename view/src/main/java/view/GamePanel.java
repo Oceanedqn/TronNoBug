@@ -16,7 +16,7 @@ import model.IModel;
 /**
  * The Class GamePanel.
  */
-class GamePanel extends JPanel {
+class GamePanel extends JPanel implements IGamePanel {
 
 	/** The J 1 x. */
 	private int J1x;
@@ -44,6 +44,8 @@ class GamePanel extends JPanel {
 
 	/** The chrono. */
 	private Chrono chrono;
+
+	private int finalTime;
 
 	/**
 	 * Constructor.
@@ -130,7 +132,14 @@ class GamePanel extends JPanel {
 		// ################################## Timer ###################################
 		// ############################################################################
 		// string = Integer.toString(this.chrono.getStr());
-		System.out.println(this.chrono.getStr() + "methode timer");
+		// System.out.println(this.chrono.getStr() + "methode timer dans gamepanel");
+
+		Integer unInt = Integer.decode(this.chrono.getStr());
+
+		finalTime = unInt;
+		// finalTime = this.chrono.getStr();
+
+		// System.out.println(finalTime + " FINALTIME VARIABLE GAMEPANEL");
 
 		g.setColor(Color.WHITE);
 		g.drawString("Timer :", 625, 70);
@@ -149,6 +158,14 @@ class GamePanel extends JPanel {
 		g.setColor(Color.WHITE);
 		g.drawString("BLOCK : " + blockNumberJ2, 625, 350);
 
+	}
+
+	public int getFinalTime() {
+		return finalTime;
+	}
+
+	public void setFinalTime(int finalTime) {
+		this.finalTime = finalTime;
 	}
 
 	/**
@@ -235,5 +252,6 @@ class GamePanel extends JPanel {
 	public void setJ2y(int J2y) {
 		this.J2y = J2y;
 	}
+
 
 }

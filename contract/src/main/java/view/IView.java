@@ -14,6 +14,7 @@ import controller.IController;
  */
 public interface IView {
 
+
 	/**
 	 * Display message.
 	 *
