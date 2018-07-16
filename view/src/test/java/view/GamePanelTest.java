@@ -34,6 +34,7 @@ public class GamePanelTest {
 	@Test
 	public void testGetChronoTimer() {
 		testChrono = chrono.getStr();
+
 		equals(testChrono = this.chrono.getStr());
 	}
 
