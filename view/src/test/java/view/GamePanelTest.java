@@ -17,8 +17,12 @@ public class GamePanelTest {
 	/** The chrono. */
 	private Chrono chrono;
 
+	private GamePanel game;
+
 	/** The test chrono. */
 	String testChrono;
+
+	private String finalTime;
 
 	/**
 	 * Requis.
@@ -26,6 +30,7 @@ public class GamePanelTest {
 	@Before
 	public void requis() {
 		chrono = new Chrono();
+		game = new GamePanel();
 	}
 
 	/**
@@ -35,7 +40,16 @@ public class GamePanelTest {
 	public void testGetChronoTimer() {
 		testChrono = chrono.getStr();
 
-		equals(testChrono = this.chrono.getStr());
+		equals(testChrono = this.chrono.getFinalTime());
+	}
+
+	@Test
+	public void testgetFinalTime() {
+		testChrono = chrono.getStr();
+		finalTime = game.getFinalTime();
+
+		equals(testChrono = finalTime);
+
 	}
 
 }

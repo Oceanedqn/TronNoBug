@@ -45,7 +45,7 @@ class GamePanel extends JPanel implements IGamePanel {
 	/** The chrono. */
 	private Chrono chrono;
 
-	private int finalTime;
+	private String finalTime;
 
 	/**
 	 * Constructor.
@@ -134,9 +134,9 @@ class GamePanel extends JPanel implements IGamePanel {
 		// string = Integer.toString(this.chrono.getStr());
 		// System.out.println(this.chrono.getStr() + "methode timer dans gamepanel");
 
-		Integer unInt = Integer.decode(this.chrono.getStr());
+		// Integer unInt = Integer.decode(this.chrono.getStr());
 
-		finalTime = unInt;
+		// finalTime = unInt;
 		// finalTime = this.chrono.getStr();
 
 		// System.out.println(finalTime + " FINALTIME VARIABLE GAMEPANEL");
@@ -160,11 +160,11 @@ class GamePanel extends JPanel implements IGamePanel {
 
 	}
 
-	public int getFinalTime() {
+	public String getFinalTime() {
 		return finalTime;
 	}
 
-	public void setFinalTime(int finalTime) {
+	public void setFinalTime(String finalTime) {
 		this.finalTime = finalTime;
 	}
 

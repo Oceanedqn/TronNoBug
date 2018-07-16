@@ -58,31 +58,31 @@ public class MenuPanel extends JPanel implements Observer {
 		 */
 		g.setColor(Color.GRAY);
 
-		g.drawString("BIENVENUE DANS L'ÉDITION SPÉCIAL TRON MODE CACHÉ", 268, 20);
+		g.drawString("WELCOME TO THE SPECIAL EDITION TRON MODE HIDDEN", 268, 20);
 
-		g.drawString(" * Si tu veux connaître l'avancé du TEMPS de partie,", 110, 250);
-		g.drawString("   n'oublies pas de bouger", 115, 265);
+		g.drawString(" * If you want to know the advanced par time,", 110, 250);
+		g.drawString("   do not forget to move", 115, 265);
 
-		g.drawString(" * Essaye de faire le MOINS de mouvement possible", 110, 285);
-		g.drawString("   pour battre le record !", 115, 300);
+		g.drawString(" * Try to do the least possible movement", 110, 285);
+		g.drawString("   to break the record !", 115, 300);
 
-		g.drawString(" * Ne te cogne pas dans les MURS ! ", 110, 320);
-		g.drawString("   (On doit être maitre de son vehicule !)", 115, 335);
+		g.drawString(" * Do not hit the walls ! ", 110, 320);
+		g.drawString("   (You have to be a master of your vehicle !)", 115, 335);
 
-		g.drawString(" * Les MOTOS ne sont pas des murs ! ", 110, 355);
+		g.drawString(" * The bikes are not walls ! ", 110, 355);
 
-		g.drawString(" * N : Nouveau MENU", 480, 250);
+		g.drawString(" * N : New Menu", 480, 250);
 
-		g.drawString(" * P : Sauvegarde du score dans la BDD", 480, 285);
-		g.drawString(" * P : Affichage du score de fin dans la popup final ", 480, 300);
+		g.drawString(" * P : Save the score in the database", 480, 285);
+		g.drawString(" * P : Display of the end score in the final popup ", 480, 300);
 
 		g.drawLine(440, 210, 440, 370);
 
 		final Font fonte = new Font("Zapfino", Font.BOLD, 15);
 		g.setFont(fonte);
 
-		g.drawString("Quelques infos et astuces avant de débuter", 100, 225);
-		g.drawString("Nouveautés et Prochainement", 470, 225);
+		g.drawString("Some information and tips before starting", 100, 225);
+		g.drawString("News and soon", 470, 225);
 
 		g.setColor(Color.MAGENTA);
 		g.drawString("Press ENTER for start the game", 325, 190);

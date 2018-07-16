@@ -3,6 +3,7 @@ package controller;
 import javax.swing.JOptionPane;
 
 import model.IModel;
+import view.IGamePanel;
 import view.IView;
 
 // TODO: Auto-generated Javadoc
@@ -19,6 +20,8 @@ public class Controller implements IController {
 	private IModel model;
 
 	private IChrono chrono;
+
+	private IGamePanel game;
 
 	/** The chrono. */
 
@@ -238,8 +241,9 @@ public class Controller implements IController {
 
 		if (model.getBlockNumberJ2() == 0) {
 			javax.swing.JOptionPane.showMessageDialog(null,
-					"J2 WIN AVEC " + model.getBlockNumberJ2() + " MÛRS POSÉ, BAH ALORS ON EST NUL !", "END MESSAGE",
-					JOptionPane.INFORMATION_MESSAGE);
+					"J2 WIN AVEC " + model.getBlockNumberJ2()
+							+ " MÛRS POSÉ, BAH ALORS ON EST NUL !" /* + this.getTimer() */,
+					"END MESSAGE", JOptionPane.INFORMATION_MESSAGE);
 		}
 
 		else if (model.getBlockNumberJ2() > 0 && model.getBlockNumberJ2() < 29) {
@@ -313,6 +317,10 @@ public class Controller implements IController {
 		this.chrono = chrono;
 	}
 
+	public IGamePanel getGamePanel() {
+		return game;
+	}
+
 	/**
 	 * Gets the view.
 	 *
@@ -339,6 +347,10 @@ public class Controller implements IController {
 	 */
 	public int moveBikeJ1X() {
 		return this.model.getBikeJ1X();
+	}
+
+	public String getTimer() {
+		return this.game.getFinalTime();
 	}
 
 	/**

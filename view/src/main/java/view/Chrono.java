@@ -26,7 +26,7 @@ public class Chrono implements Runnable {
 	private String str;
 	
 	/** The final time. */
-	private int finalTime = 50;
+	private String finalTime = "50";
 	
 	/** The is end. */
 	private boolean isEnd = true;
@@ -111,7 +111,7 @@ public class Chrono implements Runnable {
 	 *
 	 * @return the final time
 	 */
-	public int getFinalTime() {
+	public String getFinalTime() {
 		return finalTime;
 	}
 
@@ -120,7 +120,7 @@ public class Chrono implements Runnable {
 	 *
 	 * @param finalTime the new final time
 	 */
-	public void setFinalTime(int finalTime) {
+	public void setFinalTime(String finalTime) {
 		this.finalTime = finalTime;
 	}
 
